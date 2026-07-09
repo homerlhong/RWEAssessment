@@ -1,0 +1,91 @@
+# Amgen Senior RWD Analyst/Programmer — 49个面试问题清单
+
+按考察重点分为 7 大类，共 49 题。
+
+---
+
+## 一、SAS / SQL 编程（10题）
+
+1. How would you join two SAS datasets when the key fields have inconsistent formats (e.g., different date formats)?
+2. Explain the difference between `MERGE` in a data step vs. `PROC SQL JOIN`. When would you choose one over the other?
+3. How do you identify and remove duplicate records in a claims dataset using SAS?
+4. Walk me through the logic to derive a patient's first exposure date to a drug using NDC codes.
+5. What is the purpose of `RETAIN`, `FIRST.`, and `LAST.` when processing longitudinal claims data?
+6. How would you transpose a long dataset of monthly claims into a wide format for reporting?
+7. How do you handle missing values in a large claims table without introducing bias into the analysis?
+8. What performance considerations do you keep in mind when running SAS programs against millions of claims records?
+9. Describe how you would validate/QC a SAS-derived analysis dataset against the source data.
+10. When working with very large tables, would you use `PROC SQL` or `PROC SORT` + data step merge — and why?
+
+---
+
+## 二、Claims / EHR 数据结构（8题）
+
+11. What is a "continuous enrollment" requirement, and why does it matter in claims-based studies?
+12. How do you define an index date in a new-user cohort study?
+13. Explain the difference between a look-back period and a washout period.
+14. What are the key structural differences between MarketScan, Optum, and Medicare claims data?
+15. How would you distinguish inpatient vs. outpatient claims within a claims database?
+16. What challenges typically arise when linking claims data to EHR data?
+17. How do you handle enrollment gaps when calculating a patient's follow-up time?
+18. What are common data quality issues in EHR data compared to claims data?
+
+---
+
+## 三、Cohort Building & Treatment Patterns（7题）
+
+19. How do you define a "new user" (incident user) cohort, and why is this distinction important?
+20. What is PDC (Proportion of Days Covered) and how is it calculated?
+21. How does MPR (Medication Possession Ratio) differ from PDC?
+22. How would you programmatically distinguish a treatment switch from a treatment augmentation?
+23. How do you define treatment discontinuation using claims data (e.g., what gap threshold would you use, and why)?
+24. Walk me through how you would build an analysis-ready dataset starting from raw claims tables.
+25. How do you handle patients who have multiple qualifying index events during the study period?
+
+---
+
+## 四、统计方法（7题）
+
+26. When would you use Cox proportional hazards regression vs. Kaplan-Meier estimation?
+27. What is the proportional hazards assumption, and how would you test it?
+28. When would logistic regression be preferred over Poisson regression?
+29. How do you handle censoring in a claims-based survival analysis (e.g., disenrollment)?
+30. What is propensity score matching, and when would you use IPTW instead?
+31. How do you assess covariate balance after propensity score matching?
+32. What's the difference between how you interpret a hazard ratio vs. an odds ratio?
+
+---
+
+## 五、RWE 方法学 / 研究设计（7题）
+
+33. Walk me through the end-to-end workflow of a typical RWE study, from research question to final deliverable.
+34. How do you determine whether a data source is "fit-for-purpose" for a given research question?
+35. What is immortal time bias, and how would you design a study to avoid it?
+36. What's the difference between confounding and effect modification?
+37. How do you approach designing a sensitivity analysis for an observational study?
+38. What is the OMOP Common Data Model, and what problem does it solve?
+39. How would you design a study to compare treatment effectiveness using claims data alone?
+
+---
+
+## 六、Oncology RWE 专项（5题）
+
+40. How do you define "line of therapy" using oncology claims data?
+41. What challenges exist in capturing disease progression using real-world data?
+42. How would you approximate biomarker status when working with a claims-only dataset?
+43. What's your approach to defining a treatment episode in oncology RWE research?
+44. How do real-world outcome/response definitions differ from clinical trial endpoints?
+
+---
+
+## 七、行为面试 / 项目经验（5题）
+
+45. Tell me about a time you discovered a data quality issue that changed your study's conclusions.
+46. Describe a project where you had to explain technical programming decisions to non-technical stakeholders (e.g., epidemiologists or clinicians).
+47. How do you ensure reproducibility and traceability in your programming work?
+48. Tell me about a time you had to work from an ambiguous or incomplete study protocol. How did you proceed?
+49. How do you manage tight timelines when working on multiple RWE deliverables at once?
+
+---
+
+*建议：优先熟练回答第一、二、三类（JD 硬性要求的编程与数据结构部分），这些大概率是评分重点。第六类可结合你的肿瘤背景重点发挥，作为差异化优势。*
