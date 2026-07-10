@@ -1,8 +1,11 @@
 # RWE Analyst Assessment Master Answer Guide — Ultimate Edition
 # RWE 分析师测评综合答案指南（中英双语·终极版）
 
-> **Purpose / 用途:** A single, interview-ready reference for RWE Analyst, Senior RWD Analyst/Programmer, Healthcare Data Analyst, and Clinical/RWE Programming assessments. Every topic works as a standalone spoken answer or a written short-response.
-> 面向 RWE 分析师、高级 RWD 分析师/程序员、医疗数据分析师及临床/RWE 编程测评的一站式面试级参考。每个主题均可作为独立的口头回答或书面简答使用。
+> **Purpose / 用途:** A single, interview-ready reference for RWE Analyst, Senior RWD Analyst/Programmer,
+Healthcare Data Analyst, and Clinical/RWE Programming assessments. Every topic works as a standalone spoken answer 
+or a written short-response.
+> 面向 RWE 分析师、高级 RWD 分析师/程序员、医疗数据分析师及临床/RWE 编程测评的一站式面试级参考。
+每个主题均可作为独立的口头回答或书面简答使用。
 
 ---
 
@@ -80,20 +83,41 @@
 
 | Topic / 主题 | One-Liner (EN) | 一句话（中） |
 |---|---|---|
-| **Claims data / 理赔数据** | ~3 yrs; cohort ID, continuous enrollment, index dates, treatment patterns, utilization & cost — mindful it's billing data, not clinical truth. | 约 3 年；队列识别、连续参保、索引日期、治疗模式、利用与费用——始终清楚这是计费数据而非临床事实。 |
-| **EHR data / EHR 数据** | ~3 yrs; richer clinical detail (labs, vitals, notes), but missingness is often informative and care can be fragmented. | 约 3 年；临床细节更丰富（化验、生命体征、病历），但缺失常具信息性、诊疗可能碎片化。 |
-| **Clinical trials / 临床试验** | 4+ yrs; full SDTM→ADaM→TLF lifecycle, oncology efficacy/safety, production & validation. | 4+ 年；完整 SDTM→ADaM→TLF 生命周期，肿瘤疗效/安全性，生产与验证。 |
-| **Target trial emulation / 目标试验模拟** | Specify the ideal RCT, then emulate it; align eligibility, treatment assignment & time zero to avoid immortal time bias. | 先设定理想 RCT 再模拟；对齐资格、治疗分配与时间零点，避免不死时间偏倚。 |
-| **Fitness for purpose / 数据适用性** | Right data for the question — provenance, coverage, validity of exposure/outcome/confounders, follow-up, linkage. | 数据要契合问题——来源、覆盖、暴露/结局/混杂效度、随访、关联质量。 |
-| **SAS / SAS** | 4+ yrs; DATA step, PROC SQL, macros, LIFETEST/PHREG/LOGISTIC, SDTM/ADaM, TLF, validation. | 4+ 年；DATA 步、PROC SQL、宏、LIFETEST/PHREG/LOGISTIC、SDTM/ADaM、TLF、验证。 |
-| **R / R** | survival, MatchIt, tableone, ggplot2 — KM, Cox, PS matching, IPTW, SMD, reproducible reports. | survival、MatchIt、tableone、ggplot2——KM、Cox、PS 匹配、IPTW、SMD、可重复报告。 |
-| **Python / Python** | pandas/scikit-learn/PyTorch — ETL, cohort build, QC automation, NLP on notes, ML/imaging. | pandas/scikit-learn/PyTorch——ETL、队列构建、QC 自动化、病历 NLP、ML/影像。 |
-| **Big data / 大数据** | Teradata, Hadoop/Hive/Spark — pushdown, partitioning, incremental extraction, reconciliation. | Teradata、Hadoop/Hive/Spark——下推、分区、增量提取、核对。 |
-| **Propensity scores / 倾向性评分** | Model treatment prob, check overlap/positivity, match or IPTW, confirm balance by SMD < 0.1. | 建模治疗概率，查重叠/正值性，匹配或 IPTW，用 SMD<0.1 确认均衡。 |
-| **Survival / 生存分析** | KM + log-rank + Cox; define time zero, event, censoring; check PH; handle competing risks (Fine–Gray). | KM+log-rank+Cox；定义时间零点、事件、删失；查 PH 假设；竞争风险用 Fine–Gray。 |
-| **Bias / 偏倚** | Confounding by indication, immortal time, prevalent-user, selection, surveillance — design beats adjustment. | 适应症混杂、不死时间、现患用户、选择、监测——设计优于事后调整。 |
-| **Missing data / 缺失数据** | Diagnose the mechanism first; MI when modelable; in EHR missingness ≠ random. | 先诊断机制；可建模时用多重插补；EHR 缺失非随机。 |
-| **QC / 质量控制** | Preventive (specs, macros, version control) + detective (double programming, PROC COMPARE, reconciliation). | 预防（规范、宏、版本控制）+ 检测（双重编程、PROC COMPARE、核对）。 |
+
+| **Claims data / 理赔数据** | ~3 yrs; cohort ID, continuous enrollment, index dates, treatment patterns,
+utilization & cost — mindful it's billing data, not clinical truth. 
+
+| 约 3 年；队列识别、连续参保、索引日期、
+治疗模式、利用与费用——始终清楚这是计费数据而非临床事实。 |
+
+| **EHR data / EHR 数据** | ~3 yrs; richer clinical detail (labs, vitals, notes), but missingness is often informative 
+and care can be fragmented. 
+| 约 3 年；临床细节更丰富（化验、生命体征、病历），但缺失常具信息性、诊疗可能碎片化。 |
+
+| **Clinical trials / 临床试验** | 4+ yrs; full SDTM→ADaM→TLF lifecycle, oncology efficacy/safety, 
+production & validation. | 4+ 年；完整 SDTM→ADaM→TLF 生命周期，肿瘤疗效/安全性，生产与验证。 |
+| **Target trial emulation / 目标试验模拟** | Specify the ideal RCT, then emulate it; align eligibility, 
+treatment assignment & time zero to avoid immortal time bias. | 先设定理想 RCT 再模拟；对齐资格、治疗分配与时间零点，避免不死时间偏倚。 |
+| **Fitness for purpose / 数据适用性** | Right data for the question — provenance, coverage, 
+validity of exposure/outcome/confounders, follow-up, linkage. | 数据要契合问题——来源、覆盖、暴露/结局/混杂效度、随访、关联质量。 |
+| **SAS / SAS** | 4+ yrs; DATA step, PROC SQL, macros, LIFETEST/PHREG/LOGISTIC, SDTM/ADaM, TLF, validation.
+| 4+ 年；DATA 步、PROC SQL、宏、LIFETEST/PHREG/LOGISTIC、SDTM/ADaM、TLF、验证。 |
+| **R / R** | survival, MatchIt, tableone, ggplot2 — KM, Cox, PS matching, IPTW, SMD, reproducible reports. 
+| survival、MatchIt、tableone、ggplot2——KM、Cox、PS 匹配、IPTW、SMD、可重复报告。 |
+| **Python / Python** | pandas/scikit-learn/PyTorch — ETL, cohort build, QC automation, NLP on notes, ML/imaging. 
+| pandas/scikit-learn/PyTorch——ETL、队列构建、QC 自动化、病历 NLP、ML/影像。 |
+| **Big data / 大数据** | Teradata, Hadoop/Hive/Spark — pushdown, partitioning, incremental extraction, reconciliation. 
+| Teradata、Hadoop/Hive/Spark——下推、分区、增量提取、核对。 |
+| **Propensity scores / 倾向性评分** | Model treatment prob, check overlap/positivity, match or IPTW, confirm balance by SMD < 0.1. 
+| 建模治疗概率，查重叠/正值性，匹配或 IPTW，用 SMD<0.1 确认均衡。 |
+| **Survival / 生存分析** | KM + log-rank + Cox; define time zero, event, censoring; check PH; handle competing risks (Fine–Gray). 
+| KM+log-rank+Cox；定义时间零点、事件、删失；查 PH 假设；竞争风险用 Fine–Gray。 |
+| **Bias / 偏倚** | Confounding by indication, immortal time, prevalent-user, selection, surveillance — design beats adjustment. 
+| 适应症混杂、不死时间、现患用户、选择、监测——设计优于事后调整。 |
+| **Missing data / 缺失数据** | Diagnose the mechanism first; MI when modelable; in EHR missingness ≠ random. 
+| 先诊断机制；可建模时用多重插补；EHR 缺失非随机。 |
+| **QC / 质量控制** | Preventive (specs, macros, version control) + detective (double programming, PROC COMPARE, reconciliation). 
+| 预防（规范、宏、版本控制）+ 检测（双重编程、PROC COMPARE、核对）。 |
 
 **Signature closing line / 标志性收尾句:**
 > "I don't treat RWE as only statistical modeling. Reliable evidence starts with a clear question, the right data source, sound design, transparent definitions, and rigorous validation — statistics support, not replace, those foundations."
