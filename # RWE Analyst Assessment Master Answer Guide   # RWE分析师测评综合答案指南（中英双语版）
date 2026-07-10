@@ -1,15 +1,372 @@
-# RWE Analyst Assessment Master Answer Guide  
-# RWE分析师测评综合答案指南（中英双语版）
+# RWE Analyst Assessment Master Answer Guide — Ultimate Edition
+# RWE 分析师测评综合答案指南（中英双语·终极版）
 
-> 适用岗位：RWE Analyst、Senior RWD Analyst/Programmer、Healthcare Data Analyst、Clinical/RWE Programmer  
-> Suitable for: RWE Analyst, Senior RWD Analyst/Programmer, Healthcare Data Analyst, and Clinical/RWE Programmer roles.
+> **Purpose / 用途:** A single, interview-ready reference for RWE Analyst, Senior RWD Analyst/Programmer, Healthcare Data Analyst, and Clinical/RWE Programming assessments. Every topic works as a standalone spoken answer or a written short-response.
+> 面向 RWE 分析师、高级 RWD 分析师/程序员、医疗数据分析师及临床/RWE 编程测评的一站式面试级参考。每个主题均可作为独立的口头回答或书面简答使用。
 
 ---
 
-## 1. Professional Summary  
-## 1. 专业概述
+## How to Use This Guide / 使用说明
 
-### English
+**English**
+- **Full narrative (Sections 1–36):** Deep, detailed answers. Read for understanding; adapt aloud in interviews.
+- **Quick-Fire Cheat Sheet (Part A):** 30-second one-liners for rapid recall and phone screens.
+- **Interview Q&A Bank (Part B):** Common technical and behavioral questions with structured answers.
+- **Code Snippet Library (Part C):** Ready-to-explain SAS / SQL / R examples — walk through the logic, don't just paste.
+- **Bilingual Glossary (Part D):** Key EN↔CN terminology so you never stall on a translation.
+
+**中文**
+- **完整叙述（第 1–36 节）：** 深入、详尽的答案。用于理解，面试时可口头改编。
+- **速查表（Part A）：** 30 秒一句话版本，用于快速回忆和电话初筛。
+- **面试问答库（Part B）：** 常见技术与行为问题及结构化答案。
+- **代码片段库（Part C）：** 可现场讲解的 SAS / SQL / R 示例——重在讲清逻辑，而非照搬。
+- **中英术语词汇表（Part D）：** 关键中英对照术语，避免翻译卡壳。
+
+**Interview tip / 面试技巧:** For any open question, use the 5-step frame — *Direct answer → Approach → Rationale → Limitations → Validation.* See Section 34.
+对任何开放性问题，套用五步框架：直接回答 → 方法 → 依据 → 局限 → 验证。详见第 34 节。
+
+---
+
+## Table of Contents / 目录
+
+**Part A — Quick-Fire Cheat Sheet / 速查表**
+**Part B — Interview Q&A Bank / 面试问答库**
+**Part C — Code Snippet Library / 代码片段库**
+**Part D — Bilingual Glossary / 中英术语词汇表**
+
+**Full Narrative Sections / 完整叙述章节**
+1. Professional Summary / 职业概述
+2. Medical & Health Insurance Claims Data / 医疗与健康保险理赔数据
+3. Electronic Health Record (EHR) Data / 电子健康记录数据
+4. Clinical Trial Data / 临床试验数据
+5. Other Healthcare Data / 其他医疗数据
+6. RWE → SDTM-like / ADaM-like Structures / RWE 转换为类 SDTM/ADaM 结构
+7. Integrating Oncology CDISC with RWE / 肿瘤 CDISC 与 RWE 结合
+8. Target Trial Emulation / 目标试验模拟
+9. Data Fitness for Purpose / 数据适用性评估
+10. Large Database Extraction / 大型数据库提取
+11. Cloud & On-Premise Environments / 云端与本地环境
+12. Teradata in RWE / Teradata 在 RWE 中的应用
+13. Hadoop, Hive & Spark / Hadoop、Hive 与 Spark
+14. SAS Programming / SAS 编程
+15. SAS PROC SQL / SAS PROC SQL
+16. SAS Macro Programming / SAS 宏编程
+17. R Programming / R 编程
+18. Python Programming / Python 编程
+19. Unix & Linux / Unix 与 Linux
+20. SQL & Other Programming / SQL 及其他编程
+21. Chi-Square Test / 卡方检验
+22. T-Test / t 检验
+23. ANOVA / 方差分析
+24. Linear Regression / 线性回归
+25. Logistic Regression / 逻辑回归
+26. Survival Analysis / 生存分析
+27. Propensity Score Methods / 倾向性评分方法
+28. Missing Data / 缺失数据
+29. Bias in RWE Studies / RWE 研究中的偏倚
+30. Production Analysis / 生产分析
+31. Quality Control & Validation / 质量控制与验证
+32. Healthcare Utilization & Cost Analysis / 医疗资源利用与费用分析
+33. Treatment Pattern Analysis / 治疗模式分析
+34. How to Answer Open Questions / 如何回答开放性问题
+35. Concise Assessment Answers / 简明测评答案
+36. Final Professional Positioning / 最终职业定位
+
+---
+
+# Part A — Quick-Fire Cheat Sheet / 速查表
+
+> 30-second answers. One breath each. / 每条 30 秒，一口气说完。
+
+| Topic / 主题 | One-Liner (EN) | 一句话（中） |
+|---|---|---|
+| **Claims data / 理赔数据** | ~3 yrs; cohort ID, continuous enrollment, index dates, treatment patterns, utilization & cost — mindful it's billing data, not clinical truth. | 约 3 年；队列识别、连续参保、索引日期、治疗模式、利用与费用——始终清楚这是计费数据而非临床事实。 |
+| **EHR data / EHR 数据** | ~3 yrs; richer clinical detail (labs, vitals, notes), but missingness is often informative and care can be fragmented. | 约 3 年；临床细节更丰富（化验、生命体征、病历），但缺失常具信息性、诊疗可能碎片化。 |
+| **Clinical trials / 临床试验** | 4+ yrs; full SDTM→ADaM→TLF lifecycle, oncology efficacy/safety, production & validation. | 4+ 年；完整 SDTM→ADaM→TLF 生命周期，肿瘤疗效/安全性，生产与验证。 |
+| **Target trial emulation / 目标试验模拟** | Specify the ideal RCT, then emulate it; align eligibility, treatment assignment & time zero to avoid immortal time bias. | 先设定理想 RCT 再模拟；对齐资格、治疗分配与时间零点，避免不死时间偏倚。 |
+| **Fitness for purpose / 数据适用性** | Right data for the question — provenance, coverage, validity of exposure/outcome/confounders, follow-up, linkage. | 数据要契合问题——来源、覆盖、暴露/结局/混杂效度、随访、关联质量。 |
+| **SAS / SAS** | 4+ yrs; DATA step, PROC SQL, macros, LIFETEST/PHREG/LOGISTIC, SDTM/ADaM, TLF, validation. | 4+ 年；DATA 步、PROC SQL、宏、LIFETEST/PHREG/LOGISTIC、SDTM/ADaM、TLF、验证。 |
+| **R / R** | survival, MatchIt, tableone, ggplot2 — KM, Cox, PS matching, IPTW, SMD, reproducible reports. | survival、MatchIt、tableone、ggplot2——KM、Cox、PS 匹配、IPTW、SMD、可重复报告。 |
+| **Python / Python** | pandas/scikit-learn/PyTorch — ETL, cohort build, QC automation, NLP on notes, ML/imaging. | pandas/scikit-learn/PyTorch——ETL、队列构建、QC 自动化、病历 NLP、ML/影像。 |
+| **Big data / 大数据** | Teradata, Hadoop/Hive/Spark — pushdown, partitioning, incremental extraction, reconciliation. | Teradata、Hadoop/Hive/Spark——下推、分区、增量提取、核对。 |
+| **Propensity scores / 倾向性评分** | Model treatment prob, check overlap/positivity, match or IPTW, confirm balance by SMD < 0.1. | 建模治疗概率，查重叠/正值性，匹配或 IPTW，用 SMD<0.1 确认均衡。 |
+| **Survival / 生存分析** | KM + log-rank + Cox; define time zero, event, censoring; check PH; handle competing risks (Fine–Gray). | KM+log-rank+Cox；定义时间零点、事件、删失；查 PH 假设；竞争风险用 Fine–Gray。 |
+| **Bias / 偏倚** | Confounding by indication, immortal time, prevalent-user, selection, surveillance — design beats adjustment. | 适应症混杂、不死时间、现患用户、选择、监测——设计优于事后调整。 |
+| **Missing data / 缺失数据** | Diagnose the mechanism first; MI when modelable; in EHR missingness ≠ random. | 先诊断机制；可建模时用多重插补；EHR 缺失非随机。 |
+| **QC / 质量控制** | Preventive (specs, macros, version control) + detective (double programming, PROC COMPARE, reconciliation). | 预防（规范、宏、版本控制）+ 检测（双重编程、PROC COMPARE、核对）。 |
+
+**Signature closing line / 标志性收尾句:**
+> "I don't treat RWE as only statistical modeling. Reliable evidence starts with a clear question, the right data source, sound design, transparent definitions, and rigorous validation — statistics support, not replace, those foundations."
+> "我不把 RWE 仅当作统计建模。可靠证据始于清晰的问题、合适的数据源、严谨的设计、透明的定义和严格的验证——统计是支撑而非替代这些基础。"
+
+---
+
+# Part B — Interview Q&A Bank / 面试问答库
+
+> Structured model answers for the questions most likely to be asked live.
+> 针对现场最可能被问到的问题的结构化范例答案。
+
+### Q1. Claims vs. EHR — when would you use each? / 理赔与 EHR——各自何时使用？
+
+**EN:** I match the data to the question. Claims give broad, longitudinal population coverage and are strong for utilization, cost, hospitalization, adherence, and persistence — but they're generated for billing, so they lack disease severity, labs, stage, and performance status, and a code isn't a confirmed diagnosis. EHR gives clinical depth — labs, vitals, notes — which is essential for severity, response, or biomarker-driven questions, but it can be fragmented (care outside the network is invisible) and its missingness is often informative. For questions needing both breadth and depth, I favor **linked** claims–EHR data, and validate outcomes across sources.
+
+**中:** 我让数据契合问题。理赔提供广泛的纵向人群覆盖，擅长利用、费用、住院、依从和持续，但为计费而生，缺少疾病严重程度、化验、分期和体能状态，且编码不等于确诊。EHR 提供临床深度——化验、生命体征、病历——对严重程度、缓解或生物标志物驱动的问题至关重要，但可能碎片化（网络外诊疗不可见），且缺失常具信息性。当问题同时需要广度与深度时，我倾向使用**关联的**理赔–EHR 数据，并跨源验证结局。
+
+### Q2. Explain immortal time bias and how you prevent it. / 解释不死时间偏倚及如何避免。
+
+**EN:** Immortal time is a span of follow-up during which, by design, the outcome cannot occur — often created when group assignment depends on something that happens *after* time zero (e.g., classifying someone as "treated" based on a prescription filled weeks into follow-up). That period is falsely credited to the treated group as event-free survival, biasing results in its favor. The fix is design: align **eligibility, treatment assignment, and time zero** at the same instant, use a new-user design, and if treatment is time-varying, model it with time-dependent covariates or a clone-censor-weight approach.
+
+**中:** 不死时间是指按设计结局不可能发生的一段随访时间——通常在分组依赖于时间零点*之后*发生的事件时产生（例如根据随访数周后才配的处方将患者归为"已治疗"）。这段时间被错误地记为治疗组的无事件生存，使结果偏向治疗组。解决之道在于设计：将**资格、治疗分配和时间零点**对齐于同一时刻，采用新用户设计；若治疗随时间变化，用时依协变量或克隆-删失-加权方法建模。
+
+### Q3. Walk me through a propensity score analysis. / 讲讲倾向性评分分析的流程。
+
+**EN:** First I fix the causal question and estimand (ATE vs. ATT). I choose a new-user, active-comparator design, then select confounders by subject knowledge — true confounders and outcome predictors, not instruments. I estimate the PS (usually logistic regression), then check **overlap and positivity** on the PS distributions. I apply matching (nearest-neighbor with a caliper) or IPTW depending on the estimand. Critically, I assess **balance via standardized mean differences**, targeting SMD < 0.1, not p-values. I inspect extreme weights and effective sample size, trim or stabilize if pre-specified, then estimate the effect and run sensitivity analyses. I always state that PS handles *measured* confounding only — it does nothing for unmeasured confounding.
+
+**中:** 首先确定因果问题和估计量（ATE 还是 ATT）。我选择新用户、活性对照设计，然后凭专业知识选混杂因素——真正的混杂和结局预测因子，而非工具变量。我估计倾向性评分（通常逻辑回归），检查评分分布的**重叠性与正值性**。根据估计量选择匹配（带卡钳的最近邻）或 IPTW。关键是用**标准化均值差评估均衡性**，目标 SMD<0.1，而非看 p 值。我检查极端权重和有效样本量，预设情况下截断或稳定化，然后估计效应并做敏感性分析。我总会说明 PS 只处理*已测量*混杂，对未测量混杂无能为力。
+
+### Q4. How do you handle a Cox model when proportional hazards fails? / Cox 模型比例风险假设不成立时怎么办？
+
+**EN:** First I confirm the violation — Schoenfeld residual plots, a formal test, or log-log curves crossing. Then, depending on the reason: I can **stratify** on the offending covariate, add a **time-by-covariate interaction** (time-varying coefficient), fit a model over separate time intervals, or step outside the hazard-ratio framework entirely and report **restricted mean survival time (RMST)** or milestone survival, which don't assume PH and are often more interpretable for clinicians anyway.
+
+**中:** 首先确认违反——Schoenfeld 残差图、正式检验或 log-log 曲线交叉。然后视原因而定：可对违反的协变量**分层**，加入**时间×协变量交互项**（时变系数），在不同时间区间分段拟合，或彻底跳出风险比框架，报告**限制性平均生存时间（RMST）**或里程碑生存率——它们不假设 PH，且对临床医生往往更易解读。
+
+### Q5. A stakeholder says "just run the numbers fast." A key confounder is unmeasured. What do you do? / 相关方要求"快速跑数"，但关键混杂未测量。你怎么办？
+
+**EN:** I deliver, but transparently. I run the analysis with the best available adjustment, then clearly flag that the unmeasured confounder limits causal interpretation. I quantify the concern where possible — e.g., an **E-value** to show how strong unmeasured confounding would need to be to explain away the effect, or a negative-control outcome. I frame it as decision-useful: here's the estimate, here's how much to trust it, and here's what data linkage or a sensitivity analysis would take to strengthen it. Speed and honesty aren't in conflict when I separate the result from its caveats.
+
+**中:** 我会交付，但保持透明。我用现有最佳调整跑分析，然后明确指出未测量混杂限制了因果解读。在可能时量化这一担忧——例如用 **E-value** 说明未测量混杂需多强才能抵消该效应，或用阴性对照结局。我把它表述为对决策有用：这是估计值、这是可信程度、以及数据关联或敏感性分析需要什么来加强它。当我把结果与其局限分开陈述时，速度与诚实并不冲突。
+
+### Q6. Behavioral — describe a validation discrepancy you resolved. / 行为题——描述一次你解决的验证差异。
+
+**EN (STAR):** *Situation* — production and QC ADTTE outputs disagreed on median PFS. *Task* — find the root cause without assuming either side was right. *Action* — I compared specs, then datasets, and traced it to a censoring-date rule: one program censored at last adequate assessment, the other at data cutoff for patients lost to follow-up. I re-read the SAP, confirmed the intended rule, and documented it. *Result* — we corrected the production program, aligned both sides, logged the root cause, and I proposed a standard censoring macro so the ambiguity couldn't recur.
+
+**中（STAR）:** *情境* — 生产端与 QC 端的 ADTTE 输出在 PFS 中位数上不一致。*任务* — 在不预设任一方正确的前提下找出根因。*行动* — 我先比规范、再比数据集，追踪到一条删失日期规则：一个程序在末次充分评估删失，另一个在数据截止对失访患者删失。我重读 SAP、确认预期规则并记录。*结果* — 我们修正生产程序、对齐两端、记录根因，我还提议一个标准删失宏，杜绝该歧义再次发生。
+
+### Q7. What makes RWE "regulatory-grade" rather than exploratory? / 什么让 RWE 达到"监管级"而非探索级？
+
+**EN:** Pre-specification and transparency. A regulatory-grade study has a protocol and SAP written before looking at outcomes, a clearly justified fit-for-purpose data source, an explicit estimand, a design that emulates a target trial, validated exposure/outcome/covariate definitions (ideally with published algorithm validation), traceable and reproducible programming, and pre-planned sensitivity and quantitative bias analyses. Exploratory work can be flexible; regulatory work must be defensible against the criticism "you tuned the analysis until you liked the answer."
+
+**中:** 预先设定和透明。监管级研究在查看结局之前就有方案和 SAP、有充分论证的数据适用性、明确的估计量、模拟目标试验的设计、经过验证的暴露/结局/协变量定义（最好有已发表的算法验证）、可追溯且可重复的编程，以及预先计划的敏感性分析和定量偏倚分析。探索性工作可以灵活；监管级工作必须经得起"你把分析调到自己满意为止"的质疑。
+
+---
+
+
+# Part C — Code Snippet Library / 代码片段库
+
+> Explain the *logic* in interviews; these are illustrative patterns, not production code.
+> 面试时讲清*逻辑*；以下为示范模式，非生产代码。
+
+## C1. SAS — Cohort with continuous enrollment & index date / SAS——连续参保与索引日期队列
+
+```sas
+/* First qualifying diagnosis = index date; require 6-mo continuous enrollment pre-index */
+proc sql;
+  create table index_dx as
+  select patient_id, min(svc_date) as index_date format=date9.
+  from claims_dx
+  where dx_code in ('E1140','E1141')      /* disease code list */
+  group by patient_id;
+quit;
+
+proc sql;
+  create table cohort as
+  select a.patient_id, a.index_date
+  from index_dx a
+  inner join enrollment e
+    on a.patient_id = e.patient_id
+   and e.enroll_start <= a.index_date - 180   /* 6-mo baseline covered */
+   and e.enroll_end   >= a.index_date;
+quit;
+```
+*Talking point / 讲解:* Baseline continuous enrollment lets me treat "no claim" as "no event," not "no data." / 基线连续参保让我把"无理赔"解读为"无事件"而非"无数据"。
+
+## C2. SAS — Treatment-emergent AE flag / SAS——治疗期不良事件标志
+
+```sas
+data adae;
+  merge ae adsl(keep=usubjid trtsdt trtedt);
+  by usubjid;
+  /* TEAE: onset on/after first dose (and within safety window of last dose) */
+  if astdt >= trtsdt and (missing(trtedt) or astdt <= trtedt + 30) then trtemfl = 'Y';
+  else trtemfl = 'N';
+run;
+```
+
+## C3. SAS — Kaplan–Meier & Cox / SAS——KM 与 Cox
+
+```sas
+proc lifetest data=adtte plots=survival(atrisk cl);
+  time aval*cnsr(1);            /* cnsr=1 censored, 0 event */
+  strata trtp;                  /* log-rank across arms */
+run;
+
+proc phreg data=adtte;
+  class trtp(ref='Placebo') / param=ref;
+  model aval*cnsr(1) = trtp age sex ecog;   /* HR adjusted for covariates */
+  hazardratio trtp;
+  assess ph / resample;         /* check proportional hazards */
+run;
+```
+
+## C4. SQL — Earliest event per patient, joined back to baseline / SQL——每患者最早事件并关联基线
+
+```sql
+WITH first_rx AS (
+  SELECT patient_id, MIN(fill_date) AS index_date
+  FROM pharmacy_claims
+  WHERE ndc IN (SELECT ndc FROM drug_list)
+  GROUP BY patient_id
+)
+SELECT f.patient_id, f.index_date, d.charlson_score, d.prior_hosp_flag
+FROM first_rx f
+LEFT JOIN baseline_covariates d
+  ON f.patient_id = d.patient_id;
+```
+*Talking point / 讲解:* Grouped MIN gives time zero; the left join preserves every eligible patient. / 分组 MIN 得到时间零点；左连接保留每位合格患者。
+
+## C5. R — Propensity score matching + balance check / R——倾向性评分匹配与均衡检查
+
+```r
+library(MatchIt); library(tableone)
+
+# Estimate PS and match (nearest neighbor, caliper)
+m <- matchit(treated ~ age + sex + charlson + prior_hosp,
+             data = df, method = "nearest", caliper = 0.2)
+matched <- match.data(m)
+
+# Assess balance via standardized mean differences (target |SMD| < 0.1)
+vars <- c("age","sex","charlson","prior_hosp")
+tab  <- CreateTableOne(vars = vars, strata = "treated",
+                       data = matched, test = FALSE)
+print(tab, smd = TRUE)
+```
+
+## C6. R — IPTW with stabilized weights / R——稳定化 IPTW
+
+```r
+ps  <- glm(treated ~ age + sex + charlson, family = binomial, data = df)$fitted
+p_t <- mean(df$treated)
+df$sw <- ifelse(df$treated == 1, p_t/ps, (1 - p_t)/(1 - ps))   # stabilized weights
+
+library(survival)
+cox <- coxph(Surv(time, event) ~ treated, data = df, weights = sw,
+             robust = TRUE)                                    # robust SE for weighting
+summary(cox)
+```
+
+## C7. Python — QC automation (duplicates, missingness, count reconciliation) / Python——QC 自动化
+
+```python
+import pandas as pd
+
+def qc_report(df, key):
+    return {
+        "n_rows": len(df),
+        "n_unique_patients": df[key].nunique(),
+        "n_duplicate_keys": df.duplicated(subset=key).sum(),
+        "missing_pct": (df.isna().mean() * 100).round(1).to_dict(),
+    }
+
+report = qc_report(cohort, key="patient_id")
+assert report["n_duplicate_keys"] == 0, "Unexpected duplicate patient keys"
+```
+
+---
+
+# Part D — Bilingual Glossary / 中英术语词汇表
+
+> Fast EN↔CN lookups so you never stall mid-answer. / 中英速查，答题不卡壳。
+
+## D1. Study Design & Causal Inference / 研究设计与因果推断
+
+| English | 中文 | Note / 备注 |
+|---|---|---|
+| Estimand | 估计量 | The precise target of estimation / 精确的估计目标 |
+| Target trial emulation | 目标试验模拟 | Design observational study to mimic ideal RCT / 模拟理想 RCT |
+| Time zero (index date) | 时间零点（索引日期） | Where eligibility, treatment & follow-up align / 三者对齐之点 |
+| New-user design | 新用户设计 | Enroll at treatment initiation / 治疗起始时入组 |
+| Active comparator | 活性对照 | Reduces confounding by indication / 减少适应症混杂 |
+| Intention-to-treat (ITT) | 意向性治疗分析 | Classify by initial assignment / 按初始分组 |
+| Per-protocol | 符合方案 | Censor on deviation; use IPCW / 偏离即删失，配 IPCW |
+| Washout period | 洗脱期 | Exclude prior use / 排除既往用药 |
+
+## D2. Bias / 偏倚
+
+| English | 中文 |
+|---|---|
+| Confounding by indication | 适应症混杂 |
+| Immortal time bias | 不死时间偏倚 |
+| Prevalent-user bias | 现患用户偏倚 |
+| Selection bias | 选择偏倚 |
+| Information bias / misclassification | 信息偏倚 / 错误分类 |
+| Surveillance bias | 监测偏倚 |
+| Channeling bias | 导向偏倚 |
+| Informative censoring | 信息性删失 |
+| Residual confounding | 残余混杂 |
+| Reverse causation | 反向因果 |
+
+## D3. Statistical Methods / 统计方法
+
+| English | 中文 |
+|---|---|
+| Propensity score (PS) | 倾向性评分 |
+| Inverse probability of treatment weighting (IPTW) | 治疗逆概率加权 |
+| Standardized mean difference (SMD) | 标准化均值差 |
+| Overlap / positivity | 重叠性 / 正值性 |
+| Average treatment effect (ATE / ATT) | 平均治疗效应（总体 / 治疗组） |
+| Kaplan–Meier estimate | Kaplan–Meier 估计 |
+| Log-rank test | log-rank 检验 |
+| Cox proportional hazards model | Cox 比例风险模型 |
+| Hazard ratio (HR) | 风险比 |
+| Proportional hazards (PH) assumption | 比例风险假设 |
+| Restricted mean survival time (RMST) | 限制性平均生存时间 |
+| Competing risks (Fine–Gray) | 竞争风险（Fine–Gray） |
+| Cumulative incidence function | 累积发生率函数 |
+| Multiple imputation | 多重插补 |
+| E-value | E 值（敏感性分析指标） |
+| Odds ratio / risk ratio | 比值比 / 风险比 |
+
+## D4. Data & Programming / 数据与编程
+
+| English | 中文 |
+|---|---|
+| Real-world data / evidence (RWD / RWE) | 真实世界数据 / 证据 |
+| Electronic health record (EHR) | 电子健康记录 |
+| Continuous enrollment | 连续参保 |
+| Fit for purpose | 数据适用性 |
+| Pushdown processing | 下推处理 |
+| Incremental extraction | 增量提取 |
+| Reconciliation | 核对 |
+| SDTM / ADaM | 研究数据标准 / 分析数据模型 |
+| Tables, listings, figures (TLF) | 表格、列表、图形 |
+| Double programming / independent validation | 双重编程 / 独立验证 |
+| Traceability | 可追溯性 |
+
+## D5. Oncology Endpoints / 肿瘤终点
+
+| English | 中文 |
+|---|---|
+| Overall survival (OS) | 总生存期 |
+| Progression-free survival (PFS) | 无进展生存期 |
+| Objective response rate (ORR) | 客观缓解率 |
+| Duration of response (DOR) | 缓解持续时间 |
+| Best overall response (BOR) | 最佳总体缓解 |
+| Time to treatment discontinuation (TTD) | 至治疗终止时间 |
+| Disease control rate (DCR) | 疾病控制率 |
+| Adverse event of special interest (AESI) | 特别关注的不良事件 |
+| Treatment-emergent adverse event (TEAE) | 治疗期出现的不良事件 |
+| Cytokine release syndrome (CRS) | 细胞因子释放综合征 |
+
+---
+
+<!-- The full 36-section bilingual narrative follows below. -->
+# Full Narrative Sections / 完整叙述章节
+
+---
+
+## 1. Professional Summary / 职业概述
+
+**English**
 
 I am a healthcare data and statistical programming professional with experience spanning real-world evidence, clinical trials, epidemiology, health outcomes research, and oncology. My background combines clinical knowledge with hands-on experience in SAS, SQL, R, Python, large healthcare databases, CDISC standards, and observational research methods.
 
@@ -21,1067 +378,1469 @@ I approach healthcare data analysis by first clarifying the research question an
 
 My overall strength is the ability to translate a clinical or business question into a transparent, executable, and validated analytical workflow.
 
-### 中文
+**中文**
 
-我是一名医疗健康数据与统计编程专业人员，工作经验涵盖真实世界证据、临床试验、流行病学、健康结局研究及肿瘤学。
-我的优势在于能够将临床背景与SAS、SQL、R、Python、大型医疗数据库、CDISC标准及观察性研究方法相结合。
-我的真实世界数据经验包括医疗与药房理赔数据、电子健康记录、疾病登记数据、实验室数据、死亡数据、医疗资源利用、成本数据及多源链接数据。
-我使用这些数据识别研究人群、构建纵向队列、定义治疗暴露和临床结局、派生协变量、分析治疗模式，并生成可直接用于统计分析的数据集。
-我的临床试验经验包括SDTM与ADaM数据集的开发和验证、表格/列表/图形的生成，以及肿瘤疗效和安全性分析。我处理过总生存期、无进展生存期、
-缓解持续时间和至治疗终止时间等生存终点，也支持过治疗期间不良事件、实验室异常、剂量调整和特别关注不良事件等安全性分析。
-在开展医疗数据分析时，我首先明确研究问题和目标估计量，然后评估数据是否适用于研究目的，定义队列和时间零点，
-将暴露、结局和协变量转化为可执行的操作性定义，选择合适的统计方法，识别潜在偏倚，开展敏感性分析，并实施可重复的质量控制流程。
+我是一名医疗健康数据与统计编程专业人员，经验涵盖真实世界证据（RWE）、临床试验、流行病学、健康结局研究以及肿瘤学领域。我的背景将临床知识与 SAS、SQL、R、Python、大型医疗数据库、CDISC 标准以及观察性研究方法的实践经验相结合。
 
-我的核心优势是能够把临床问题或业务问题转化为透明、可执行、可验证的分析流程。
+我的真实世界数据经验包括医疗和药房理赔数据、电子健康记录（EHR）、疾病登记数据、实验室数据、死亡数据、医疗资源利用、费用数据以及多来源关联数据集。我利用这些数据源识别研究人群、构建纵向队列、定义治疗暴露和临床结局、推导协变量、评估治疗模式，并生成可直接用于分析的数据集。
+
+我的临床试验经验包括开发和验证 SDTM 与 ADaM 数据集，生成表格、列表和图形（TLF），并支持肿瘤学疗效和安全性分析。我处理过的生存终点包括总生存期（OS）、无进展生存期（PFS）、缓解持续时间（DOR）和至治疗终止时间（TTD），以及安全性结局，包括治疗期间出现的不良事件（TEAE）、实验室异常、剂量调整和特别关注的不良事件（AESI）。
+
+在进行医疗数据分析时，我首先明确研究问题和目标估计量（estimand），然后评估现有数据是否适合研究目的，定义队列和时间零点，将暴露、结局和协变量操作化，选择合适的统计方法，评估潜在偏倚，进行敏感性分析，并实施可重复的质量控制程序。
+
+我的整体优势在于能够将临床或业务问题转化为透明、可执行且经过验证的分析工作流程。
 
 ---
 
-## 2. Medical and Health Insurance Claims Data Experience  
-## 2. 医疗及健康保险理赔数据经验
+## 2. Medical and Health Insurance Claims Data Experience / 医疗与健康保险理赔数据经验
 
-### English
+**English**
 
 I have approximately three years of experience working with medical and pharmacy claims data in real-world evidence, healthcare analytics, and health outcomes research. My work has involved longitudinal insurance records containing diagnosis codes, procedure codes, prescription claims, inpatient and outpatient services, emergency department visits, provider information, enrollment history, place of service, and healthcare cost variables.
 
-I use claims data to identify eligible patients, construct study cohorts, determine index dates, define baseline and follow-up periods, and derive treatment exposures, comorbidities, outcomes, and healthcare utilization measures. I have supported analyses of treatment initiation, switching, discontinuation, adherence, persistence, hospitalization, emergency department use, outpatient visits, specialist services, medication use, and disease-related healthcare utilization.
+I use claims data to identify eligible patients, construct study cohorts, determine index dates, define baseline and follow-up periods, and derive treatment exposures, comorbidities, outcomes, and healthcare utilization measures. For example, I may identify patients with a disease using diagnosis codes, require continuous health plan enrollment during a baseline period, identify a treatment initiation date, and follow patients for hospitalization, treatment switching, discontinuation, or other outcomes.
 
-When analyzing cost data, I distinguish among billed charges, allowed amounts, insurer-paid amounts, patient-paid amounts, and total paid amounts, because these variables represent different economic concepts.
+My claims analyses have included treatment initiation, switching, discontinuation, adherence, persistence, hospitalization, emergency department use, outpatient visits, specialist services, medication use, and disease-related healthcare utilization. I have also supported economic analyses involving total medical costs, pharmacy costs, inpatient costs, outpatient costs, emergency department costs, and disease-specific costs.
 
-A major part of claims research is establishing continuous enrollment. Continuous insurance coverage helps ensure that the absence of a claim is more reasonably interpreted as the absence of an observed healthcare event rather than loss of data availability.
+When analyzing cost data, I distinguish among billed charges, allowed amounts, insurer-paid amounts, patient-paid amounts, and total paid amounts. These variables do not represent the same economic concept, so their definitions must be aligned with the study objective.
 
-I also evaluate duplicate claims, adjusted claims, rejected or reversed pharmacy claims, missing provider information, inconsistent dates, and incomplete cost fields. Pharmacy claims often contain reversals or resubmissions, so I apply logic to avoid counting prescriptions that were not ultimately dispensed.
+A major part of claims research is establishing continuous enrollment. Continuous insurance coverage helps ensure that the absence of a claim is more reasonably interpreted as the absence of an observed healthcare event rather than loss of data availability. I therefore assess medical and pharmacy benefit eligibility, enrollment gaps, plan changes, and the completeness of the observable baseline and follow-up periods.
 
-Claims data provide broad population coverage, longitudinal utilization, and relatively complete reimbursed medical activity, but they are generated primarily for billing rather than research. Diagnosis codes may reflect rule-out diagnoses or reimbursement practices. Prescription claims indicate dispensing but not necessarily ingestion. Clinical details such as tumor stage, performance status, laboratory results, imaging findings, and physician reasoning may be missing.
+I also evaluate data quality issues such as duplicate claims, adjusted claims, rejected or reversed pharmacy claims, missing provider information, inconsistent dates, and incomplete cost fields. Pharmacy claims often contain reversals or resubmissions, so I apply appropriate logic to avoid counting a prescription that was not ultimately dispensed.
 
-I therefore assess whether claims data are fit for the research question, use validated algorithms where possible, require repeated diagnoses when appropriate, incorporate procedure or medication evidence, link claims with EHR or registry data when available, and perform sensitivity analyses using alternative definitions.
+Claims data are valuable because they provide broad population coverage, longitudinal healthcare utilization, and relatively complete reimbursed medical activity. However, they are primarily generated for billing and reimbursement rather than research. Diagnosis codes may reflect rule-out diagnoses, coding practices, or reimbursement incentives. Medication claims indicate dispensing, but not necessarily actual ingestion. Clinical details such as disease severity, performance status, tumor stage, laboratory results, imaging findings, and physician reasoning may be missing.
 
-### 中文
+For this reason, I assess whether claims data are fit for the specific research question and clearly document their limitations. Where possible, I use validated code-based algorithms, require repeated diagnoses, incorporate procedure or medication evidence, link claims with EHR or registry data, and perform sensitivity analyses using alternative definitions.
 
-我大约有三年医疗理赔和药房理赔数据经验，主要应用于真实世界证据、医疗数据分析和健康结局研究。我的工作涉及纵向保险记录，包括诊断代码、操作代码、处方理赔、住院与门诊服务、急诊就诊、医疗服务提供者信息、参保历史、服务地点及医疗成本变量。
+**中文**
 
-我使用理赔数据识别符合条件的患者、构建研究队列、确定索引日期、定义基线期和随访期，并派生治疗暴露、合并症、研究结局及医疗资源利用指标。我支持过治疗启动、换药、停药、依从性、持续性、住院、急诊使用、门诊就诊、专科服务、药物使用及疾病相关医疗资源利用等分析。
+我在真实世界证据、医疗数据分析和健康结局研究领域拥有约三年的医疗和药房理赔数据工作经验。我的工作涉及纵向保险记录，包括诊断编码、操作/手术编码、处方理赔、住院和门诊服务、急诊就诊、医疗服务提供者信息、参保历史、服务地点以及医疗费用变量。
 
-在成本分析中，我会区分账单金额、允许支付金额、保险支付金额、患者自付金额和总支付金额，因为这些变量代表不同的经济学含义。
+我使用理赔数据来识别符合条件的患者、构建研究队列、确定索引日期（index date）、定义基线期和随访期，并推导治疗暴露、合并症、结局和医疗资源利用指标。例如，我可以通过诊断编码识别患有某种疾病的患者，要求在基线期内连续参保，确定治疗起始日期，并随访患者的住院、治疗转换、治疗终止或其他结局。
 
-理赔研究中的关键环节之一是连续参保定义。连续保险覆盖有助于确保“没有理赔记录”更合理地解释为“没有观察到医疗事件”，而不是由于患者脱离数据库所造成的数据缺失。
+我的理赔数据分析包括治疗起始、转换、终止、依从性、持续性、住院、急诊使用、门诊就诊、专科服务、用药情况以及疾病相关的医疗资源利用。我还支持过经济学分析，涉及总医疗费用、药房费用、住院费用、门诊费用、急诊费用和疾病特异性费用。
 
-我也会评估重复理赔、调整理赔、被拒绝或冲销的药房理赔、提供者信息缺失、日期不一致及成本字段不完整等问题。药房理赔常包含冲销和重新提交，因此需要设置规则，避免把最终未实际发药的处方计入分析。
+在分析费用数据时，我会区分账单金额（billed charges）、协议允许金额（allowed amounts）、保险方支付金额、患者自付金额和总支付金额。这些变量代表的经济学概念并不相同，因此其定义必须与研究目标保持一致。
 
-理赔数据具有覆盖人群广、纵向追踪能力强和报销医疗活动记录较完整等优势，但其主要目的仍是支付和报销，并非科研。诊断代码可能是排除性诊断或受到编码与报销规则影响；药房理赔只能证明药品已发放，不能证明患者实际服用；肿瘤分期、体能状态、实验室结果、影像学发现和医生判断等临床细节也可能缺失。
+理赔研究的一个重要环节是确立连续参保。连续的保险覆盖有助于确保"没有理赔记录"更合理地被解释为"未发生可观察到的医疗事件"，而不是数据缺失。因此，我会评估医疗和药房福利资格、参保中断、保险计划变更，以及可观察基线期和随访期的完整性。
 
-因此，我会评估理赔数据是否适用于具体研究问题，尽量使用经过验证的代码算法，在适当情况下要求重复诊断，并结合操作或用药证据；如有条件，还会链接EHR或登记数据，并通过替代定义开展敏感性分析。
+我还会评估数据质量问题，例如重复理赔、调整理赔、被拒绝或被冲销的药房理赔、缺失的提供者信息、日期不一致以及费用字段不完整。药房理赔中经常包含冲销或重新提交的记录，因此我会应用适当的逻辑，避免将最终未实际配药的处方计入统计。
 
----
+理赔数据的价值在于其广泛的人群覆盖、纵向的医疗资源利用记录以及相对完整的报销医疗活动。然而，这些数据主要为计费和报销而生成，而非为研究目的。诊断编码可能反映排除性诊断、编码习惯或报销激励。药物理赔表明配药，但不一定代表患者实际服用。疾病严重程度、体能状态、肿瘤分期、实验室结果、影像学发现和医生的临床判断等临床细节可能缺失。
 
-## 3. Electronic Health Record Data Experience  
-## 3. 电子健康记录数据经验
-
-### English
-
-I have approximately three years of experience working with EHR data in real-world evidence, epidemiology, and healthcare analytics. My work has involved demographics, diagnoses, procedures, medication orders, medication administrations, laboratory results, vital signs, encounters, admissions and discharges, clinical notes, provider information, and disease-specific variables.
-
-I use EHR data to identify study populations, establish index dates, define baseline and follow-up periods, and derive exposures, outcomes, comorbidities, disease characteristics, and healthcare utilization measures.
-
-Compared with claims, EHR data generally provide greater clinical detail, including laboratory values, vital signs, disease severity, symptoms, and information documented in notes. However, different EHR elements have different meanings. A medication order represents prescribing intent, whereas an administration record provides stronger evidence that treatment was delivered.
-
-At McGill University, I supported projects involving EHR and clinical data related to COVID-19, maternal health, and emergency care. My responsibilities included data cleaning, cohort identification, variable derivation, patient-level analysis, and selected natural language processing approaches for extracting information from clinical text.
-
-I have also worked with linked EHR, claims, registry, laboratory, and mortality data. These linkages combine the clinical detail of EHRs with the broader utilization history available in claims.
-
-I routinely assess missingness, documentation variation, duplicate records, changes in EHR systems, inconsistent coding, care received outside the network, and differences in laboratory units or reference ranges.
-
-Missing EHR values are often informative. A test may be absent because it was not clinically indicated, because it was performed outside the network, or because the result was not integrated into the system. Therefore, missingness cannot automatically be assumed to be random.
-
-From a programming perspective, I create reproducible EHR workflows using SAS, SQL, R, and Python and validate cohort counts, temporal relationships, variable distributions, missingness patterns, and protocol consistency.
-
-### 中文
-
-我大约有三年电子健康记录数据经验，主要用于真实世界证据、流行病学及医疗数据分析项目。接触过的数据包括人口学信息、诊断、操作、药物医嘱、给药记录、实验室结果、生命体征、就诊记录、住院与出院信息、临床文本、医疗服务提供者信息及疾病特异性变量。
-
-我使用EHR数据识别研究人群、建立索引日期、定义基线期与随访期，并派生暴露、结局、合并症、疾病特征和医疗资源利用指标。
-
-与理赔数据相比，EHR通常包含更多临床细节，例如实验室值、生命体征、疾病严重程度、症状及临床笔记内容。但不同数据字段具有不同解释。例如，药物医嘱代表医生的处方意图，而给药记录则更能证明治疗实际发生。
-
-在麦吉尔大学期间，我参与过与COVID-19、母婴健康和急诊医疗相关的EHR及临床数据项目，负责数据清洗、队列识别、变量派生、患者层面分析，并使用部分自然语言处理方法从临床文本中提取结构化字段中缺失的信息。
-
-我也处理过EHR与理赔、登记、实验室和死亡数据的链接。此类数据整合能够将EHR的临床细节与理赔数据更广泛的纵向医疗利用信息结合起来。
-
-我会常规评估缺失数据、记录习惯差异、重复记录、EHR系统变更、编码不一致、网络外就医及实验室单位或参考范围差异。
-
-EHR中的缺失往往具有信息性。某项检查缺失，可能是医生认为不需要，也可能是在网络外完成，或结果未被整合进系统。因此，不能自动假设缺失是随机的。
-
-在编程方面，我使用SAS、SQL、R和Python建立可重复的EHR数据处理流程，并验证队列人数、时间关系、变量分布、缺失模式及与研究方案的一致性。
+因此，我会评估理赔数据是否适合特定的研究问题，并清楚地记录其局限性。在可能的情况下，我会使用经过验证的基于编码的算法、要求重复诊断记录、结合操作或用药证据、将理赔数据与 EHR 或登记数据关联，并使用替代定义进行敏感性分析。
 
 ---
 
-## 4. Clinical Trial Data Experience  
-## 4. 临床试验数据经验
+## 3. Electronic Health Record Data Experience / 电子健康记录（EHR）数据经验
 
-### English
+**English**
+
+I have approximately three years of experience working with electronic health record data in real-world evidence, epidemiology, and healthcare analytics projects. My work has involved structured and semi-structured EHR information, including demographics, diagnoses, procedures, medication orders, medication administrations, laboratory results, vital signs, encounter records, admission and discharge information, clinical notes, provider information, and disease-specific clinical variables.
+
+I use EHR data to identify study populations, establish index dates, define baseline and follow-up periods, and derive exposures, outcomes, comorbidities, disease characteristics, and healthcare utilization measures. Compared with claims data, EHR data generally provide greater clinical detail, including laboratory values, vital signs, disease severity, symptoms, and information documented in clinical notes.
+
+My work includes translating clinical research questions into reproducible EHR cohort definitions. This may involve defining inclusion and exclusion criteria, creating diagnosis and procedure code lists, identifying medication orders or administrations, applying laboratory thresholds, and defining outcomes using combinations of structured variables and clinical documentation.
+
+For example, a treatment exposure may be identified from medication orders, administration records, infusion records, or pharmacy data. Each source has a different interpretation. A medication order indicates prescribing intent, while an administration record provides stronger evidence that treatment was actually delivered. Therefore, the appropriate exposure definition depends on the research question and the data source.
+
+I have also worked with longitudinal patient records to evaluate treatment pathways, disease progression, clinical outcomes, and patterns of healthcare utilization. When patients have repeated laboratory measurements or encounters, I define clinically appropriate observation windows and rules for selecting baseline, follow-up, maximum, minimum, or nearest measurements.
+
+At McGill University, I supported projects involving EHR and clinical data related to COVID-19, maternal health, and emergency care. My responsibilities included data cleaning, cohort identification, variable derivation, and patient-level analysis. I also gained experience using natural language processing approaches to extract meaningful information from clinical text when structured data were incomplete.
+
+In multi-source RWE projects, I have worked with datasets linking EHR information to claims, registry, laboratory, or mortality data. Linking these sources can combine the clinical detail of EHRs with the broader longitudinal utilization captured by claims.
+
+I routinely evaluate EHR fitness for purpose. Key issues include missing data, variation in documentation practices, duplicate records, changes in EHR systems, inconsistent coding, care received outside the contributing network, and differences in laboratory units or reference ranges.
+
+Missing EHR values are often informative. A laboratory test may be missing because the physician did not consider it clinically necessary, because the patient received the test outside the network, or because the result was not integrated into the system. Therefore, missingness cannot automatically be assumed to be random.
+
+Medication orders may not confirm that a patient filled or took the medication. Diagnoses may be entered for billing, problem-list maintenance, or clinical suspicion. Some outcomes may be incompletely documented. I address these limitations through validation, alternative definitions, linkage, sensitivity analyses, and transparent reporting.
+
+From a programming perspective, I have created reproducible EHR processing workflows using SAS, SQL, R, and Python. I validate cohort counts, temporal relationships, variable distributions, missingness patterns, and consistency with the study protocol.
+
+**中文**
+
+我在真实世界证据、流行病学和医疗数据分析项目中拥有约三年的电子健康记录（EHR）数据工作经验。我的工作涉及结构化和半结构化的 EHR 信息，包括人口统计学信息、诊断、操作/手术、用药医嘱、给药记录、实验室结果、生命体征、就诊记录、入院和出院信息、临床病历、提供者信息以及疾病特异性临床变量。
+
+我使用 EHR 数据来识别研究人群、确定索引日期、定义基线期和随访期，并推导暴露、结局、合并症、疾病特征和医疗资源利用指标。与理赔数据相比，EHR 数据通常提供更丰富的临床细节，包括实验室数值、生命体征、疾病严重程度、症状以及临床病历中记录的信息。
+
+我的工作包括将临床研究问题转化为可重复的 EHR 队列定义。这可能涉及定义纳入和排除标准、创建诊断和操作编码列表、识别用药医嘱或给药记录、应用实验室阈值，以及结合结构化变量和临床文档来定义结局。
+
+例如，治疗暴露可以从用药医嘱、给药记录、输液记录或药房数据中识别。每种来源的含义不同：用药医嘱表明处方意图，而给药记录则提供了治疗实际实施的更强证据。因此，合适的暴露定义取决于研究问题和数据来源。
+
+我还处理过纵向患者记录，用于评估治疗路径、疾病进展、临床结局和医疗资源利用模式。当患者有重复的实验室检测或多次就诊时，我会定义临床上合适的观察窗口，并制定选择基线值、随访值、最大值、最小值或最接近测量值的规则。
+
+在麦吉尔大学（McGill University），我支持了涉及 COVID-19、孕产妇健康和急诊护理相关的 EHR 与临床数据项目。我的职责包括数据清洗、队列识别、变量推导和患者层面分析。当结构化数据不完整时，我还积累了使用自然语言处理（NLP）方法从临床文本中提取有价值信息的经验。
+
+在多来源 RWE 项目中，我处理过将 EHR 信息与理赔、登记、实验室或死亡数据关联的数据集。这些来源的关联可以将 EHR 的临床细节与理赔数据所捕获的更广泛的纵向医疗利用信息相结合。
+
+我会常规评估 EHR 数据是否适合研究目的。关键问题包括数据缺失、记录习惯的差异、重复记录、EHR 系统变更、编码不一致、患者在网络外接受的诊疗，以及实验室单位或参考范围的差异。
+
+EHR 中的缺失值往往具有信息含义。某项实验室检查缺失，可能是因为医生认为临床上没有必要，也可能是患者在网络外接受了检查，或者结果未被整合到系统中。因此，不能自动假定缺失是随机的。
+
+用药医嘱不能确认患者实际取药或服药。诊断可能出于计费、问题列表维护或临床怀疑而录入。某些结局的记录可能不完整。我通过验证、替代定义、数据关联、敏感性分析和透明报告来应对这些局限性。
+
+从编程角度看，我使用 SAS、SQL、R 和 Python 创建了可重复的 EHR 处理工作流程。我会验证队列计数、时间关系、变量分布、缺失模式，以及与研究方案的一致性。
+
+---
+## 4. Clinical Trial Data Experience / 临床试验数据经验
+
+**English**
 
 I have more than four years of experience working with clinical trial data, primarily in oncology, aesthetics, and related therapeutic areas. My experience covers the full statistical programming lifecycle, including raw data review, SDTM development, ADaM derivation, tables, listings, figures, validation, clinical study report support, and regulatory submission preparation.
 
-I have worked with demographics, medical history, adverse events, concomitant medications, laboratory results, vital signs, exposure, dose administration, efficacy assessments, tumor response, survival status, and disposition.
+I have worked with data collected through electronic data capture systems, including demographics, medical history, adverse events, concomitant medications, laboratory results, vital signs, exposure, dose administration, efficacy assessments, tumor response, survival status, and disposition.
 
-I review the protocol, CRFs, data management documentation, SDTM and ADaM specifications, SAP, table shells, and study conventions, then translate them into reproducible programming rules.
+My work begins with reviewing the protocol, case report forms, data management documentation, SDTM specifications, ADaM specifications, statistical analysis plan, table shells, and study conventions. I translate these documents into reproducible programming rules and ensure traceability from the source data to the analysis datasets and final outputs.
 
-I have developed and validated SDTM domains such as DM, AE, CM, EX, LB, VS, DS, MH, RS, TU, and TR, and ADaM datasets such as ADSL, ADAE, ADLB, ADTTE, ADRS, and study-specific analysis datasets.
+I have developed and validated SDTM domains such as DM, AE, CM, EX, LB, VS, DS, MH, RS, TU, and TR. I have also worked with ADaM datasets such as ADSL, ADAE, ADLB, ADTTE, ADRS, and other study-specific analysis datasets.
 
-In oncology, I have supported overall survival, progression-free survival, event-free survival, objective response rate, complete response, partial response, duration of response, disease control rate, time to response, time to progression, and tumor burden change from baseline.
+In oncology studies, I have supported efficacy endpoints such as:
 
-I have worked with RECIST 1.1 and Lugano criteria, including response derivation, analysis-visit selection, best overall response, confirmation requirements, and censoring rules.
+- Overall survival
+- Progression-free survival
+- Event-free survival
+- Objective response rate
+- Complete response
+- Partial response
+- Duration of response
+- Disease control rate
+- Time to response
+- Time to progression
+- Tumor burden and change from baseline
 
-For time-to-event endpoints, I have created ADTTE datasets and supported Kaplan–Meier estimates, median survival, landmark rates, log-rank tests, Cox models, hazard ratios, and confidence intervals.
+I have supported response analyses based on criteria such as RECIST 1.1 and Lugano, depending on the tumor type and protocol. My programming work includes deriving response records, selecting analysis visits, determining best overall response, implementing confirmation requirements, and applying censoring rules.
 
-My safety programming experience includes treatment-emergent adverse events, serious adverse events, events leading to discontinuation or dose modification, events of special interest, laboratory abnormalities, exposure, deaths, and treatment discontinuation. I have also supported cytokine release syndrome and immune effector cell-associated neurotoxicity syndrome analyses.
+For time-to-event analyses, I have created ADTTE datasets and supported Kaplan–Meier estimates, median survival, landmark rates, log-rank tests, Cox proportional hazards models, hazard ratios, and confidence intervals. I carefully implement event definitions, start dates, censoring dates, analysis populations, and data cutoff rules.
 
-I have served in both production and validation roles, independently reproduced derivations, compared outputs, investigated discrepancies, and documented root causes. I have also coordinated timelines, assigned tasks, tracked risks, and communicated with statisticians, data managers, project leads, and sponsor teams.
+My safety programming experience includes treatment-emergent adverse events, serious adverse events, adverse events leading to discontinuation, adverse events leading to dose interruption or reduction, adverse events of special interest, laboratory abnormalities, exposure, deaths, and treatment discontinuations.
 
-### 中文
+In immuno-oncology and cell therapy-related settings, I have supported specialized safety analyses involving cytokine release syndrome and immune effector cell-associated neurotoxicity syndrome. These analyses require careful handling of grading, onset, duration, treatment relationship, interventions, and temporal association with treatment.
 
-我有四年以上临床试验数据经验，主要集中于肿瘤学、医美及相关治疗领域。我的经验覆盖完整的统计编程生命周期，包括原始数据审阅、SDTM开发、ADaM派生、表格/列表/图形生成、验证、临床研究报告支持及监管申报准备。
+I have served in both production and validation roles. During validation, I independently reproduce derivations, compare datasets and outputs, investigate discrepancies, and document root causes. I check treatment assignments, population flags, denominators, visit windows, event definitions, censoring logic, model options, and output formatting.
 
-我处理过人口学信息、既往病史、不良事件、合并用药、实验室结果、生命体征、暴露、给药记录、疗效评估、肿瘤反应、生存状态及受试者处置等数据。
+I have also coordinated programming activities, monitored timelines, assigned tasks, tracked risks, and communicated with statisticians, data managers, project leads, and sponsor teams. I have supported interim analyses, final analyses, data cutoffs, database locks, clinical study reports, and submission deliverables.
 
-我会审阅研究方案、CRF、数据管理文档、SDTM和ADaM规格、SAP、输出壳表及研究约定，并将这些内容转化为可重复执行的编程规则。
+**中文**
 
-我开发和验证过DM、AE、CM、EX、LB、VS、DS、MH、RS、TU、TR等SDTM域，也处理过ADSL、ADAE、ADLB、ADTTE、ADRS及研究特异性ADaM数据集。
+我拥有四年以上的临床试验数据工作经验，主要集中在肿瘤学、医学美容及相关治疗领域。我的经验涵盖统计编程的完整生命周期，包括原始数据审查、SDTM 开发、ADaM 推导、表格/列表/图形（TLF）、验证、临床研究报告（CSR）支持以及监管递交准备。
 
-在肿瘤项目中，我支持过总生存期、无进展生存期、无事件生存期、客观缓解率、完全缓解、部分缓解、缓解持续时间、疾病控制率、至缓解时间、至进展时间及肿瘤负荷相对基线变化等终点。
+我处理过通过电子数据采集（EDC）系统收集的数据，包括人口统计学、既往病史、不良事件、合并用药、实验室结果、生命体征、暴露、给药记录、疗效评估、肿瘤缓解、生存状态和受试者处置情况。
 
-我处理过RECIST 1.1和Lugano标准，包括反应记录派生、分析访视选择、最佳总体反应、确认要求和删失规则。
+我的工作从审阅试验方案、病例报告表（CRF）、数据管理文档、SDTM 规范、ADaM 规范、统计分析计划（SAP）、表格模板（table shells）和研究规范开始。我将这些文档转化为可重复的编程规则，并确保从源数据到分析数据集及最终输出的可追溯性。
 
-对于时间事件终点，我建立过ADTTE数据集，并支持Kaplan-Meier估计、中位生存时间、里程碑生存率、log-rank检验、Cox模型、风险比及置信区间。
+我开发并验证过的 SDTM 域包括 DM、AE、CM、EX、LB、VS、DS、MH、RS、TU 和 TR。我还处理过 ADSL、ADAE、ADLB、ADTTE、ADRS 等 ADaM 数据集以及其他研究特定的分析数据集。
 
-安全性编程经验包括治疗期间不良事件、严重不良事件、导致停药或剂量调整的不良事件、特别关注不良事件、实验室异常、暴露、死亡和治疗终止。我也支持过细胞因子释放综合征和免疫效应细胞相关神经毒性综合征分析。
+在肿瘤研究中，我支持过的疗效终点包括：
 
-我既承担过生产编程，也承担过独立验证，会复现派生、比较输出、调查差异并记录根本原因。此外，我也负责协调时间线、分配任务、跟踪风险，并与统计师、数据管理人员、项目负责人和申办方团队沟通。
+- 总生存期（OS）
+- 无进展生存期（PFS）
+- 无事件生存期（EFS）
+- 客观缓解率（ORR）
+- 完全缓解（CR）
+- 部分缓解（PR）
+- 缓解持续时间（DOR）
+- 疾病控制率（DCR）
+- 至缓解时间（TTR）
+- 至进展时间（TTP）
+- 肿瘤负荷及相对基线的变化
 
----
+根据肿瘤类型和方案要求，我支持过基于 RECIST 1.1 和 Lugano 等标准的缓解分析。我的编程工作包括推导缓解记录、选择分析访视、确定最佳总体缓解（BOR）、实施缓解确认要求以及应用删失规则。
 
-## 5. Other Relevant Healthcare Data Experience  
-## 5. 其他相关医疗数据经验
+在事件时间（time-to-event）分析方面，我创建过 ADTTE 数据集，并支持 Kaplan–Meier 估计、中位生存期、里程碑生存率、log-rank 检验、Cox 比例风险模型、风险比（HR）和置信区间。我会仔细实现事件定义、起始日期、删失日期、分析人群和数据截止规则。
 
-### English
+我的安全性编程经验包括治疗期间出现的不良事件（TEAE）、严重不良事件（SAE）、导致停药的不良事件、导致剂量中断或减量的不良事件、特别关注的不良事件（AESI）、实验室异常、暴露、死亡和治疗终止。
 
-In addition to claims, EHR, and clinical trial data, I have experience with disease registries, laboratory and biomarker data, mortality data, healthcare utilization and cost data, patient-reported outcomes, and linked multi-source healthcare datasets.
+在免疫肿瘤和细胞治疗相关领域，我支持过涉及细胞因子释放综合征（CRS）和免疫效应细胞相关神经毒性综合征（ICANS）的专项安全性分析。这些分析需要仔细处理分级、起始时间、持续时间、与治疗的关系、干预措施以及与治疗的时间关联。
 
-Registry data can provide detailed disease-specific variables such as stage, severity, treatment history, response, recurrence, and long-term outcomes. Laboratory data require harmonization of values, units, reference ranges, and assay methods. Mortality data require assessment of completeness and timeliness before use in survival analyses.
+我担任过生产（production）和验证（validation）两种角色。在验证过程中，我会独立重现推导逻辑、比较数据集和输出、调查差异并记录根本原因。我会检查治疗分组、人群标志、分母、访视窗口、事件定义、删失逻辑、模型选项和输出格式。
 
-I have also worked with patient-reported outcomes and quality-of-life measures, which provide information about symptoms, functioning, treatment burden, and patient experience.
-
-My linked-data experience includes claims, EHRs, registries, laboratories, and mortality sources. I assess linkage quality, duplicates, conflicting dates, variable harmonization, and source completeness.
-
-I am familiar with OMOP and HL7 FHIR, which support standardized terminology, reusable cohort definitions, and interoperability across heterogeneous systems.
-
-### 中文
-
-除理赔、EHR和临床试验数据外，我还具有疾病登记、实验室及生物标志物、死亡、医疗资源利用和成本、患者报告结局及多源链接医疗数据经验。
-
-登记数据可以提供分期、严重程度、治疗史、缓解、复发和长期结局等疾病特异性信息。实验室数据需要统一数值、单位、参考范围及检测方法。死亡数据在用于生存分析前，需要评估其完整性和时效性。
-
-我也处理过患者报告结局和生活质量指标，这些数据能够反映症状、功能状态、治疗负担和患者体验。
-
-我的数据链接经验包括理赔、EHR、登记、实验室和死亡数据。我会评估链接质量、重复记录、日期冲突、变量统一及不同数据源的完整性。
-
-我熟悉OMOP和HL7 FHIR，这些标准有助于统一术语、复用队列定义，并提升异构系统之间的互操作性。
-
----
-
-## 6. Using RWE Data to Create SDTM-like and ADaM-like Structures  
-## 6. 使用RWE数据建立类似SDTM和ADaM的结构
-
-### English
-
-Real-world data can be organized into SDTM-like structures by mapping EHR, claims, registry, and laboratory variables into standardized clinical domains. Demographics may be mapped to DM-like structures, diagnoses to MH-like records, medications to CM-like records, laboratory results to LB-like records, and encounters to utilization or event structures.
-
-However, RWD do not automatically satisfy clinical trial data standards because they are collected for care, billing, or operations rather than under a controlled protocol. Mapping therefore requires documentation of provenance, assumptions, transformations, and limitations.
-
-ADaM-like datasets can then be created for analysis. An ADSL-like dataset may contain one record per patient with cohort assignment, index date, baseline characteristics, follow-up, and analysis flags. An ADTTE-like dataset may contain time-to-event outcomes such as survival, hospitalization, progression, or treatment discontinuation.
-
-The essential principles are traceability, reproducibility, metadata documentation, and transparent operational definitions.
-
-### 中文
-
-可以将EHR、理赔、登记和实验室数据映射到标准化临床域，形成类似SDTM的结构。例如，人口学信息可映射为类似DM的数据，诊断可映射为类似MH的数据，用药可映射为类似CM的数据，实验室结果可映射为类似LB的数据，就诊记录可映射为医疗利用或事件类结构。
-
-但RWD并不会自动满足临床试验标准，因为这些数据是为临床照护、支付或运营而采集，而不是按照受控研究方案采集。因此，映射过程中必须清楚记录数据来源、假设、转换规则和局限性。
-
-随后可以构建类似ADaM的分析数据集。例如，类似ADSL的数据集可每位患者一条记录，包含队列分组、索引日期、基线特征、随访信息和分析标志；类似ADTTE的数据集可包含生存、住院、进展或治疗终止等时间事件结局。
-
-核心原则是可追溯性、可重复性、元数据记录及透明的操作性定义。
+我还协调过编程工作，包括监控时间表、分配任务、跟踪风险，并与统计师、数据管理人员、项目负责人和申办方团队沟通。我支持过期中分析、最终分析、数据截止、数据库锁定、临床研究报告和递交交付物。
 
 ---
 
-## 7. Integrating Oncology SDTM and ADaM Experience with RWE  
-## 7. 将肿瘤SDTM/ADaM经验与RWE结合
+## 5. Other Relevant Healthcare Data Experience / 其他相关医疗数据经验
 
-### English
+**English**
 
-My oncology SDTM and ADaM experience is directly relevant to RWE because population definition, endpoint derivation, temporal alignment, censoring, and traceability are important in both settings.
+In addition to claims, EHR, and clinical trial data, I have experience with disease registries, laboratory and biomarker data, mortality data, healthcare utilization data, cost data, patient-reported outcomes, and linked multi-source healthcare datasets.
 
-In clinical trials, eligibility, treatment assignment, visit schedules, response criteria, and outcome assessments are protocol-defined. In RWE, these must be operationalized from routinely collected data.
+Registry data can provide detailed disease-specific variables such as stage, severity, treatment history, response, recurrence, and long-term outcomes. I use registry data for cohort construction, subgroup analysis, endpoint definition, and validation of outcomes that may not be reliably captured in claims.
 
-Overall survival may be relatively straightforward when reliable death data are available. Real-world progression is more difficult because assessments do not occur at standardized intervals. It may require abstraction from radiology reports, oncology notes, tumor measurements, treatment changes, or registry data.
+I have worked with laboratory data involving longitudinal values, units, reference ranges, abnormality flags, baseline selection, change from baseline, and clinically meaningful thresholds. Laboratory data require harmonization because different institutions may use different units, assay methods, and reference ranges.
 
-Clinical trial experience helps distinguish controlled endpoint definitions from real-world proxies. CDISC experience contributes structured variable definitions, metadata, traceability, and QC, while RWE experience adds confounding, selection bias, missingness, fragmentation, and measurement error.
+Mortality information can come from EHR records, claims, registries, obituaries, government death records, or linked mortality databases. I assess the completeness and timeliness of mortality sources before using them for survival endpoints.
 
-### 中文
+I have also worked with patient-reported outcomes and quality-of-life measures. These data can provide information about symptoms, functional status, treatment burden, and patient experience that may not be available from claims or EHR data alone.
 
-我的肿瘤SDTM和ADaM经验与RWE高度相关，因为人群定义、终点派生、时间对齐、删失和可追溯性在两类研究中都非常重要。
+My linked-data experience includes combining patient records across claims, EHRs, registries, laboratory systems, and mortality sources. This requires assessing linkage quality, duplicate records, conflicting dates, variable harmonization, and the completeness of each source.
 
-在临床试验中，入排标准、治疗分配、访视计划、疗效标准和结局评估均由方案预先规定；而在RWE研究中，这些内容必须从日常医疗数据中进行操作化定义。
+I am familiar with standardized healthcare models and interoperability frameworks such as OMOP and HL7 FHIR. These standards support data harmonization, standardized terminology, reusable cohort definitions, and consistent analysis across heterogeneous systems.
 
-如果死亡数据可靠，总生存期相对容易定义；但真实世界进展更复杂，因为临床实践中的评估时间并不标准化，可能需要从影像报告、肿瘤科病历、肿瘤测量、治疗变化或登记数据中抽取。
+**中文**
 
-临床试验经验有助于区分严格受控的终点定义与真实世界代理指标。CDISC经验能够支持结构化变量定义、元数据、可追溯性和质量控制，而RWE经验则补充了混杂、选择偏倚、缺失、数据碎片化和测量误差等问题。
+除理赔、EHR 和临床试验数据外，我还拥有疾病登记数据、实验室和生物标志物数据、死亡数据、医疗资源利用数据、费用数据、患者报告结局（PRO）以及多来源关联医疗数据集的经验。
+
+登记数据可以提供详细的疾病特异性变量，例如分期、严重程度、治疗史、缓解、复发和长期结局。我使用登记数据进行队列构建、亚组分析、终点定义，以及验证在理赔数据中可能无法可靠捕获的结局。
+
+我处理过的实验室数据涉及纵向数值、单位、参考范围、异常标志、基线选择、相对基线的变化以及具有临床意义的阈值。由于不同机构可能使用不同的单位、检测方法和参考范围，实验室数据需要进行标准化统一。
+
+死亡信息可来自 EHR 记录、理赔数据、登记数据、讣告、政府死亡记录或关联的死亡数据库。在将死亡数据用于生存终点之前，我会评估其完整性和及时性。
+
+我还处理过患者报告结局和生活质量指标。这些数据可以提供关于症状、功能状态、治疗负担和患者体验的信息，而这些信息仅靠理赔或 EHR 数据可能无法获得。
+
+我的关联数据经验包括跨理赔、EHR、登记、实验室系统和死亡数据源整合患者记录。这需要评估关联质量、重复记录、日期冲突、变量统一化以及各数据源的完整性。
+
+我熟悉标准化医疗数据模型和互操作性框架，如 OMOP 和 HL7 FHIR。这些标准支持数据统一化、标准化术语、可重用的队列定义，以及跨异构系统的一致性分析。
 
 ---
 
-## 8. Target Trial Emulation  
-## 8. 目标试验模拟
+## 6. Using RWE Data to Create SDTM-like and ADaM-like Structures / 利用 RWE 数据创建类 SDTM 和类 ADaM 结构
 
-### English
+**English**
+
+Real-world data can be organized into SDTM-like structures by mapping source variables from EHRs, claims, registries, and laboratory systems into standardized clinical domains. For example, demographics can be mapped to DM-like structures, diagnoses to MH-like records, medications to CM-like records, laboratory results to LB-like records, and healthcare encounters to event or utilization structures.
+
+However, real-world data do not automatically satisfy clinical trial data standards. RWD are collected for clinical care, billing, operations, or administration rather than according to a controlled clinical trial schedule. Therefore, mapping RWD to SDTM requires careful documentation of provenance, assumptions, transformations, and limitations.
+
+For example, an EHR medication order may be mapped to a medication domain, but the record does not necessarily prove that the patient took the medication. A claims diagnosis may be mapped to a medical history or event record, but it may not represent a clinically confirmed diagnosis. The meaning of each field must therefore remain transparent.
+
+ADaM-like analysis datasets can be derived from standardized RWD structures. An ADSL-like dataset can contain one record per patient with cohort assignment, index date, baseline characteristics, follow-up information, and analysis flags. An ADTTE-like dataset can contain time-to-event outcomes such as overall survival, hospitalization, disease progression, or treatment discontinuation.
+
+The essential principles are traceability, reproducibility, metadata documentation, and clear operational definitions. The analyst must document how the original real-world source was transformed into standardized records and how each analysis variable was derived.
+
+**中文**
+
+真实世界数据可以通过将 EHR、理赔、登记和实验室系统中的源变量映射到标准化临床域，从而组织成类 SDTM 结构。例如，人口统计学信息可映射为类 DM 结构，诊断映射为类 MH 记录，用药映射为类 CM 记录，实验室结果映射为类 LB 记录，医疗就诊映射为事件或医疗利用结构。
+
+然而，真实世界数据并不能自动满足临床试验数据标准。RWD 是为临床诊疗、计费、运营或管理目的收集的，而不是按照受控的临床试验时间表收集的。因此，将 RWD 映射到 SDTM 需要仔细记录数据来源、假设、转换过程和局限性。
+
+例如，EHR 中的用药医嘱可以映射到用药域，但该记录并不能证明患者实际服用了药物。理赔中的诊断可以映射到既往病史或事件记录，但它可能并不代表经临床确认的诊断。因此，每个字段的含义必须保持透明。
+
+类 ADaM 分析数据集可以从标准化的 RWD 结构中推导。类 ADSL 数据集可以包含每位患者一条记录，涵盖队列分配、索引日期、基线特征、随访信息和分析标志。类 ADTTE 数据集可以包含事件时间结局，例如总生存期、住院、疾病进展或治疗终止。
+
+核心原则是可追溯性、可重复性、元数据文档记录以及清晰的操作性定义。分析人员必须记录原始真实世界数据源如何转换为标准化记录，以及每个分析变量是如何推导的。
+
+---
+
+## 7. Integrating Oncology SDTM and ADaM Experience with RWE / 将肿瘤学 SDTM/ADaM 经验与 RWE 相结合
+
+**English**
+
+My oncology SDTM and ADaM experience is directly relevant to RWE because the underlying concepts of population definition, endpoint derivation, temporal alignment, censoring, and traceability apply to both settings.
+
+In clinical trials, the protocol defines eligibility, treatment assignment, visit schedules, response criteria, and outcome assessment procedures. In RWE studies, those elements must be operationalized from routinely collected data.
+
+For example, overall survival may be relatively straightforward if reliable death data are available. Progression-free survival is more difficult because progression assessments may not occur at standardized intervals in routine care. A real-world progression endpoint may therefore require abstraction from radiology reports, oncology notes, tumor measurements, treatment changes, or registry data.
+
+Clinical trial experience also helps distinguish between highly controlled endpoint definitions and real-world proxies. The analyst should not assume that a claims code or treatment change is equivalent to protocol-defined progression without validation.
+
+My CDISC experience supports structured variable definitions, metadata, traceability, and quality control. My RWE experience adds knowledge of confounding, selection bias, missingness, data fragmentation, and measurement error.
+
+Together, these skills allow me to design RWE analyses that are clinically meaningful and methodologically transparent.
+
+**中文**
+
+我的肿瘤学 SDTM 和 ADaM 经验与 RWE 直接相关，因为人群定义、终点推导、时间对齐、删失和可追溯性等基本概念在两种研究环境中都适用。
+
+在临床试验中，方案定义了入组资格、治疗分配、访视时间表、缓解标准和结局评估程序。而在 RWE 研究中，这些要素必须从常规收集的数据中操作化实现。
+
+例如，如果有可靠的死亡数据，总生存期的分析可能相对简单。而无进展生存期则更加困难，因为在常规诊疗中，进展评估可能不会按照标准化的时间间隔进行。因此，真实世界的进展终点可能需要从放射学报告、肿瘤科病历、肿瘤测量、治疗变更或登记数据中提取。
+
+临床试验经验还有助于区分高度受控的终点定义与真实世界的替代指标。在未经验证的情况下，分析人员不应假定理赔编码或治疗变更等同于方案定义的疾病进展。
+
+我的 CDISC 经验支撑了结构化的变量定义、元数据、可追溯性和质量控制。我的 RWE 经验则补充了对混杂、选择偏倚、缺失、数据碎片化和测量误差的认识。
+
+这些技能相结合，使我能够设计出既具有临床意义又在方法学上透明的 RWE 分析。
+
+---
+
+## 8. Target Trial Emulation / 目标试验模拟
+
+**English**
 
 Target trial emulation is a framework for designing an observational study to resemble the randomized trial that would ideally answer the causal question.
 
-The target trial should specify eligibility criteria, treatment strategies, treatment assignment, time zero, follow-up, outcomes, causal contrast, and analysis plan.
+The first step is to specify the hypothetical target trial. Its key components include:
 
-Eligibility should be assessed using information available before or at treatment initiation. Treatment strategies should define initiation, continuation, switching, and discontinuation rules.
+- Eligibility criteria
+- Treatment strategies
+- Treatment assignment
+- Time zero
+- Follow-up period
+- Outcomes
+- Causal contrast
+- Analysis plan
 
-Time zero is critical. Eligibility assessment, treatment assignment, and follow-up should begin at the same time to avoid immortal time bias and other timing-related biases.
+Eligibility criteria should be applied using information available before or at treatment initiation. Treatment strategies should be defined clearly, including initiation, continuation, switching, and discontinuation rules.
 
-For comparative effectiveness studies, I prefer a new-user, active-comparator design when feasible. A new-user design allows baseline covariates to be assessed before exposure, while an active comparator reduces confounding by indication.
+Time zero is one of the most important elements. Eligibility assessment, treatment assignment, and follow-up should begin at the same time. Misalignment can create immortal time bias or other selection biases.
 
-The analysis may estimate an intention-to-treat-like effect or a per-protocol effect. A per-protocol approach may censor patients after deviation and use inverse probability weighting to address informative censoring.
+For comparative effectiveness research, I generally prefer a new-user, active-comparator design when feasible. A new-user design includes patients at treatment initiation and allows baseline covariates to be assessed before exposure. An active comparator reduces confounding by indication because both groups are more likely to have similar treatment eligibility and disease severity.
 
-Target trial emulation does not eliminate confounding, but it improves design clarity and reduces avoidable bias.
+Depending on the estimand, the analysis may approximate an intention-to-treat effect or a per-protocol effect. An intention-to-treat-like approach classifies patients according to initial treatment and follows them regardless of later changes. A per-protocol approach may censor patients when they deviate from the assigned treatment strategy and use inverse probability weighting to address informative censoring.
 
-### 中文
+Target trial emulation does not eliminate confounding, but it improves design clarity and reduces avoidable biases caused by poorly defined time zero, inappropriate eligibility criteria, prevalent-user designs, or post-baseline treatment classification.
 
-目标试验模拟是一种观察性研究设计框架，目的是让观察性研究尽可能接近理想的随机对照试验，以回答因果问题。
+**中文**
 
-目标试验应明确入选标准、治疗策略、治疗分配、时间零点、随访期、结局、因果对比和分析计划。
+目标试验模拟（Target Trial Emulation）是一种框架，用于将观察性研究设计成尽可能接近理想中能够回答因果问题的随机对照试验。
 
-入选标准应使用治疗开始前或治疗开始时可获得的信息进行判断。治疗策略应明确启动、持续、换药和停药规则。
+第一步是明确假设的目标试验。其关键组成部分包括：
 
-时间零点非常关键。资格评估、治疗分配和随访开始应在同一时点对齐，以避免不死时间偏倚和其他时间相关偏倚。
+- 入组资格标准
+- 治疗策略
+- 治疗分配
+- 时间零点（Time zero）
+- 随访期
+- 结局
+- 因果对比（causal contrast）
+- 分析计划
 
-在比较效果研究中，如条件允许，我优先考虑新使用者、主动对照设计。新使用者设计可以在暴露前评估基线协变量，主动对照则有助于降低适应证混杂。
+入组资格标准应使用治疗起始之前或起始时可获得的信息来应用。治疗策略应明确定义，包括起始、持续、转换和终止的规则。
 
-分析可估计类似意向治疗效应或符合方案效应。符合方案分析中，患者偏离策略后可能被删失，并使用逆概率加权处理信息性删失。
+时间零点是最重要的要素之一。资格评估、治疗分配和随访应从同一时间点开始。三者不对齐可能导致不死时间偏倚（immortal time bias）或其他选择偏倚。
 
-目标试验模拟不能消除所有混杂，但能够提高设计透明度，并减少可避免的偏倚。
+在比较效果研究中，只要可行，我通常倾向于采用新用户（new-user）、活性对照（active-comparator）设计。新用户设计在治疗起始时纳入患者，允许在暴露之前评估基线协变量。活性对照可减少适应症混杂，因为两组患者更可能具有相似的治疗适应性和疾病严重程度。
+
+根据估计量的不同，分析可以近似意向性治疗（ITT）效应或符合方案（per-protocol）效应。类 ITT 方法根据初始治疗对患者进行分类，无论后续治疗如何变化都持续随访。符合方案方法则可能在患者偏离指定治疗策略时对其进行删失，并使用逆概率加权来处理信息性删失。
+
+目标试验模拟并不能消除混杂，但它提高了设计的清晰度，减少了因时间零点定义不当、资格标准不合理、现患用户设计或基线后治疗分类等原因造成的可避免偏倚。
+
+---
+## 9. Data Fitness for Purpose / 数据适用性评估
+
+**English**
+
+Before performing an RWE study, I evaluate whether the available data are fit for the intended research purpose.
+
+My assessment includes:
+
+- Data provenance
+- Population coverage
+- Representativeness
+- Completeness
+- Accuracy
+- Consistency
+- Timeliness
+- Linkage quality
+- Coding systems
+- Availability of exposure information
+- Availability of outcome information
+- Availability of confounders
+- Length of follow-up
+- Missingness
+- Data refresh schedule
+
+The required level of data quality depends on the research question. A database suitable for healthcare utilization research may not be suitable for evaluating tumor response. Claims data may support hospitalization and cost outcomes but lack disease severity. EHR data may provide laboratory values but may incompletely capture care received outside the network.
+
+I assess whether the exposure, outcome, and key covariates can be measured with sufficient validity. I also determine whether the database contains enough eligible patients and outcome events to support the planned analysis.
+
+A fitness-for-purpose assessment should occur before finalizing the protocol. If critical variables are missing or poorly measured, the study design may need to be modified, additional data may need to be linked, or the research question may not be answerable with that source.
+
+**中文**
+
+在开展 RWE 研究之前，我会评估现有数据是否适合预期的研究目的。
+
+我的评估内容包括：
+
+- 数据来源（provenance）
+- 人群覆盖范围
+- 代表性
+- 完整性
+- 准确性
+- 一致性
+- 及时性
+- 关联质量
+- 编码系统
+- 暴露信息的可获得性
+- 结局信息的可获得性
+- 混杂因素的可获得性
+- 随访时长
+- 缺失情况
+- 数据更新频率
+
+所需的数据质量水平取决于研究问题。适合医疗资源利用研究的数据库可能不适合评估肿瘤缓解。理赔数据可以支持住院和费用结局，但缺少疾病严重程度信息。EHR 数据可以提供实验室数值，但可能无法完整捕获患者在网络外接受的诊疗。
+
+我会评估暴露、结局和关键协变量是否能够以足够的效度进行测量。我还会确定数据库中是否有足够多的符合条件的患者和结局事件来支持计划的分析。
+
+数据适用性评估应在方案定稿之前进行。如果关键变量缺失或测量质量差，可能需要修改研究设计、关联额外数据，或者该数据源根本无法回答该研究问题。
 
 ---
 
-## 9. Data Fitness for Purpose  
-## 9. 数据适用性评估
+## 10. Large Database Extraction Experience / 大型数据库提取经验
 
-### English
+**English**
 
-Before conducting an RWE study, I assess whether the data are fit for the intended purpose. I review provenance, population coverage, representativeness, completeness, accuracy, consistency, timeliness, linkage quality, coding systems, exposure and outcome availability, confounder availability, follow-up length, missingness, and refresh schedules.
+I have experience extracting large-scale healthcare data from cloud-based platforms and on-premise enterprise databases. I use SQL, SAS, Python, and database-specific query tools to retrieve patient-level data from claims, EHR, registry, laboratory, and clinical systems.
 
-The required level of quality depends on the question. Claims may support hospitalization and cost outcomes but not tumor response. EHRs may provide laboratory detail but incompletely capture out-of-network care.
+My extraction process begins with understanding the database schema, data dictionary, table relationships, refresh cycle, and key identifiers. I identify the source tables needed for enrollment, demographics, diagnoses, procedures, medications, laboratory data, encounters, outcomes, and costs.
 
-I also assess whether enough eligible patients and outcome events are available. Fitness-for-purpose evaluation should occur before finalizing the protocol. If critical variables are missing or poorly measured, the design or research question may need to change.
+I then define cohort criteria and extraction logic. This may include:
 
-### 中文
+- Disease code lists
+- Treatment code lists
+- Enrollment requirements
+- Index-date logic
+- Baseline and follow-up windows
+- Inclusion and exclusion criteria
+- Required variables
+- Join keys
+- Deduplication rules
 
-在开展RWE研究前，我会评估数据是否适用于研究目的。评估内容包括数据来源、人群覆盖、代表性、完整性、准确性、一致性、时效性、链接质量、编码体系、暴露和结局可用性、混杂因素可用性、随访长度、缺失情况和数据更新频率。
+For large datasets, I use pushdown processing so that filtering, joining, and aggregation are performed within the database rather than moving all raw data into SAS or Python. I select only required variables, filter records early, use partition keys, and take advantage of indexed fields.
 
-不同研究问题对数据质量的要求不同。理赔数据可用于住院和成本结局，但通常不适合直接评估肿瘤缓解；EHR可以提供实验室细节，但可能不能完整捕捉网络外医疗服务。
+I also use incremental extraction when only newly added or updated records are required. Incremental approaches reduce processing time and data movement compared with repeatedly extracting the full database.
 
-我也会评估符合条件的患者数量和结局事件数是否足够。数据适用性评估应在最终确定研究方案前完成。如果关键变量缺失或测量质量不足，就需要调整研究设计、补充链接数据，甚至重新定义研究问题。
+When direct database access is unavailable, I may use APIs, secure file transfer, cloud connectors, or scheduled data exports. I verify file integrity, row counts, date ranges, and schema consistency after transfer.
 
----
+Each extraction is documented with source tables, filters, join logic, refresh dates, code versions, and reconciliation results. I validate counts before and after joins, assess duplicate records, review unmatched keys, and compare extracted totals against source-system benchmarks.
 
-## 10. Large Database Extraction Experience  
-## 10. 大型数据库提取经验
+Extracted data are transformed into secure, analysis-ready structures for downstream work in SAS, R, or Python.
 
-### English
+**中文**
 
-I have experience extracting large healthcare datasets from cloud and on-premise platforms using SQL, SAS, Python, APIs, secure file transfer, and database-specific tools.
+我拥有从云平台和本地企业数据库中提取大规模医疗数据的经验。我使用 SQL、SAS、Python 以及数据库专用查询工具，从理赔、EHR、登记、实验室和临床系统中检索患者层面的数据。
 
-I begin by understanding the schema, data dictionary, table relationships, refresh cycle, and identifiers. I identify the tables needed for enrollment, demographics, diagnoses, procedures, medications, laboratory results, encounters, outcomes, and costs.
+我的数据提取流程从了解数据库模式（schema）、数据字典、表间关系、更新周期和关键标识符开始。我会确定参保、人口统计学、诊断、操作、用药、实验室数据、就诊、结局和费用所需的源表。
 
-For large data, I use pushdown processing so filtering, joining, and aggregation occur in the database. I select only required variables, filter early, use partition keys and indexed fields, and avoid unnecessary data movement.
+然后，我定义队列标准和提取逻辑，可能包括：
 
-I also use incremental extraction for newly added or updated records. When direct access is unavailable, I use APIs, cloud connectors, secure transfer, or scheduled exports.
+- 疾病编码列表
+- 治疗编码列表
+- 参保要求
+- 索引日期逻辑
+- 基线和随访窗口
+- 纳入和排除标准
+- 所需变量
+- 连接键（join keys）
+- 去重规则
 
-I document source tables, filters, joins, refresh dates, code versions, and reconciliation results. I validate counts before and after joins, assess duplicates and unmatched keys, and compare extracted totals with source-system benchmarks.
+对于大型数据集，我使用下推处理（pushdown processing），使筛选、连接和聚合在数据库内部完成，而不是将所有原始数据移动到 SAS 或 Python 中。我只选择所需的变量、尽早筛选记录、使用分区键，并利用索引字段。
 
-### 中文
+当只需要新增或更新的记录时，我还会采用增量提取。与反复提取整个数据库相比，增量方法可以减少处理时间和数据传输量。
 
-我有从云端和本地企业数据库中提取大型医疗数据的经验，常用SQL、SAS、Python、API、安全文件传输及数据库专用工具。
+当无法直接访问数据库时，我可能使用 API、安全文件传输、云连接器或计划性数据导出。传输后，我会验证文件完整性、行数、日期范围和模式一致性。
 
-首先，我会理解数据库架构、数据字典、表之间的关系、更新周期和关键标识符，然后确定参保、人口学、诊断、操作、用药、实验室、就诊、结局和成本所需的源表。
+每次提取都会记录源表、筛选条件、连接逻辑、更新日期、代码版本和核对结果。我会验证连接前后的记录数，评估重复记录，审查未匹配的键，并将提取的总量与源系统基准进行比较。
 
-对于大型数据集，我会采用数据库下推处理，让筛选、连接和聚合尽量在数据库内部完成。我只提取必要变量，尽早过滤，利用分区键和索引字段，并减少不必要的数据移动。
-
-对于新增或更新记录，我也会使用增量提取。当无法直接访问数据库时，可使用API、云连接器、安全传输或定期导出。
-
-每次提取都会记录源表、筛选条件、连接逻辑、更新日期、代码版本和核对结果。我会检查连接前后行数、重复记录、未匹配键，并将提取总量与源系统基准进行核对。
-
----
-
-## 11. Cloud and On-Premise Data Environments  
-## 11. 云端与本地数据环境
-
-### English
-
-I have experience with Snowflake, Databricks, AWS-based storage, distributed processing systems, relational databases, enterprise data warehouses, shared servers, Unix directories, and secure clinical programming environments.
-
-Cloud environments support scalable storage, parallel computing, elastic resources, and controlled collaboration. On-premise environments often rely on database connections, SAS libraries, network drives, batch servers, and secure file-transfer systems.
-
-In both environments, I emphasize data security, minimum necessary access, reproducibility, version control, and documentation.
-
-### 中文
-
-我接触过Snowflake、Databricks、AWS存储、分布式计算系统、关系型数据库、企业数据仓库、共享服务器、Unix目录及受控临床编程环境。
-
-云环境适合可扩展存储、并行计算、弹性资源及受控协作；本地环境则更多依赖数据库连接、SAS库、网络盘、批处理服务器和安全文件传输。
-
-无论哪种环境，我都重视数据安全、最小必要权限、可重复性、版本控制和文档记录。
+提取的数据将被转换为安全的、可直接用于分析的结构，供 SAS、R 或 Python 进行后续工作。
 
 ---
 
-## 12. Teradata Experience and Its Application in RWE  
-## 12. Teradata经验及其在RWE中的应用
+## 11. Cloud and On-Premise Data Environments / 云端与本地数据环境
 
-### English
+**English**
 
-I have used Teradata-related SQL workflows to query and manage large healthcare datasets, including claims and EHR data. My experience includes cohort extraction, patient-level linkage, variable derivation, quality checks, and preparation of analysis-ready datasets.
+In cloud environments, I have experience with platforms such as Snowflake, Databricks, AWS-based storage, and distributed data-processing systems. Cloud platforms are useful for scalable storage, parallel computation, elastic resources, and controlled collaboration.
 
-Teradata supports RWE by integrating large longitudinal datasets and enabling efficient parallel SQL processing. I use it to identify source populations, apply enrollment and diagnosis criteria, assign index dates, derive baseline covariates, construct treatment episodes, and create patient-level analytic tables.
+In on-premise environments, I have worked with relational databases, enterprise data warehouses, shared servers, Unix directories, and secure clinical programming environments.
 
-I also use SQL checks for duplicate claims, temporal consistency, missingness, enrollment continuity, and record counts. Final analysis-ready data can then be transferred to SAS, R, or Python.
+The extraction principles are similar across environments, but the technical implementation differs. Cloud workflows may use object storage, distributed SQL engines, Spark, APIs, and role-based access controls. On-premise workflows may rely more heavily on database connections, SAS libraries, network drives, batch servers, and secure file-transfer systems.
 
-### 中文
+In both settings, I emphasize data security, minimum necessary access, reproducibility, version control, and documentation.
 
-我使用过基于Teradata的SQL流程查询和管理大型医疗数据，包括理赔和EHR数据。相关经验包括队列提取、患者层面链接、变量派生、质量检查及分析数据集准备。
+**中文**
 
-Teradata能够整合大规模纵向医疗数据，并通过并行SQL高效处理。在典型RWE流程中，我可使用它识别源人群、应用参保和诊断标准、指定索引日期、派生基线协变量、构建治疗阶段并生成患者层面的分析表。
+在云环境方面，我有使用 Snowflake、Databricks、基于 AWS 的存储以及分布式数据处理系统等平台的经验。云平台在可扩展存储、并行计算、弹性资源和受控协作方面具有优势。
 
-我也会利用SQL检查重复理赔、时间一致性、缺失值、连续参保和各处理步骤的记录数。最终分析数据可传入SAS、R或Python进行建模。
+在本地环境方面，我使用过关系型数据库、企业数据仓库、共享服务器、Unix 目录以及安全的临床编程环境。
 
----
+不同环境下的数据提取原则是相似的，但技术实现有所不同。云端工作流程可能使用对象存储、分布式 SQL 引擎、Spark、API 和基于角色的访问控制。本地工作流程则更多依赖数据库连接、SAS 库、网络驱动器、批处理服务器和安全文件传输系统。
 
-## 13. Hadoop, Hive, and Spark Experience  
-## 13. Hadoop、Hive和Spark经验
-
-### English
-
-I have experience with Hadoop-based environments and distributed processing concepts for large healthcare datasets. I am familiar with HDFS, Hive, and Spark workflows used to store, query, transform, and summarize claims, EHR, and longitudinal records.
-
-Hive provides SQL-like querying over distributed storage, while Spark supports distributed transformations, joins, aggregations, and feature construction.
-
-I understand the importance of partitioning, filtering early, selecting only required columns, minimizing data shuffling, and using efficient join strategies.
-
-### 中文
-
-我具有Hadoop环境和分布式处理大型医疗数据的经验，熟悉HDFS、Hive和Spark在理赔、EHR及纵向记录存储、查询、转换和汇总中的应用。
-
-Hive可以对分布式存储执行类似SQL的查询，Spark则适合分布式转换、连接、聚合和特征构建。
-
-我理解分区、尽早过滤、仅选择必要字段、减少数据重分布及优化连接策略的重要性。
+在两种环境中，我都强调数据安全、最小必要访问权限、可重复性、版本控制和文档记录。
 
 ---
 
-## 14. SAS Programming Experience  
-## 14. SAS编程经验
+## 12. Teradata Experience and Its Application in RWE / Teradata 经验及其在 RWE 中的应用
 
-### English
+**English**
 
-I have more than four years of SAS experience in clinical trials, RWE, healthcare analytics, and statistical analysis.
+I have used Teradata-related SQL workflows to query and manage large-scale healthcare datasets, including claims and EHR information. My experience includes cohort extraction, patient-level linkage, variable derivation, data-quality checks, and preparation of analysis-ready datasets for statistical analysis.
 
-My SAS work includes data extraction, cleaning, transformation, merging, cohort construction, variable derivation, statistical analysis, TLF production, validation, automation, and QC.
+Teradata supports RWE by storing and integrating large longitudinal datasets from medical claims, pharmacy claims, EHRs, registries, laboratory systems, and mortality sources. Its parallel-processing architecture can support efficient SQL operations across very large numbers of records.
 
-I am experienced with Base SAS, DATA step, PROC SQL, macros, arrays, formats, informats, BY-group processing, retain statements, hash concepts, and procedures such as PROC FREQ, MEANS, SUMMARY, REPORT, LIFETEST, PHREG, LOGISTIC, GLM, MIXED, and SGPLOT.
+In a typical RWE workflow, I would use Teradata to identify the source population, apply enrollment and diagnosis criteria, assign index dates, derive baseline covariates, construct treatment episodes, and create patient-level analytical tables.
 
-In clinical trials, I use SAS for SDTM, ADaM, and submission-quality outputs. In RWE, I use SAS for cohort construction, treatment patterns, utilization, cost analyses, survival analysis, regression, propensity scores, matching, weighting, and sensitivity analyses.
+I would also use SQL checks to evaluate duplicate claims, temporal consistency, missing values, enrollment continuity, and record counts across processing stages.
 
-I emphasize code clarity, reusable components, log review, metadata, traceability, and independent validation.
+Analysis-ready data can then be transferred to SAS, R, or Python for statistical modeling, survival analysis, propensity-score methods, and target trial emulation.
 
-### 中文
+**中文**
 
-我有四年以上SAS经验，应用于临床试验、RWE、医疗分析和统计建模。
+我使用过与 Teradata 相关的 SQL 工作流程来查询和管理大规模医疗数据集，包括理赔和 EHR 信息。我的经验包括队列提取、患者层面数据关联、变量推导、数据质量检查，以及为统计分析准备可直接使用的分析数据集。
 
-我的SAS工作包括数据提取、清洗、转换、合并、队列构建、变量派生、统计分析、TLF生成、验证、自动化及质量控制。
+Teradata 通过存储和整合来自医疗理赔、药房理赔、EHR、登记、实验室系统和死亡数据源的大型纵向数据集来支持 RWE。其并行处理架构可以支持对海量记录进行高效的 SQL 操作。
 
-我熟悉Base SAS、DATA step、PROC SQL、宏、数组、格式、输入格式、BY组处理、retain语句、哈希概念，以及PROC FREQ、MEANS、SUMMARY、REPORT、LIFETEST、PHREG、LOGISTIC、GLM、MIXED和SGPLOT等过程。
+在典型的 RWE 工作流程中，我会使用 Teradata 来识别源人群、应用参保和诊断标准、分配索引日期、推导基线协变量、构建治疗周期（treatment episodes），并创建患者层面的分析表。
 
-在临床试验中，我使用SAS开发SDTM、ADaM和申报级输出；在RWE中，我使用SAS进行队列构建、治疗模式、医疗利用、成本、生存、回归、倾向评分、匹配、加权和敏感性分析。
+我还会使用 SQL 检查来评估重复理赔、时间一致性、缺失值、参保连续性以及各处理阶段的记录数。
 
-我重视代码清晰度、可复用组件、日志检查、元数据、可追溯性和独立验证。
+准备好的分析数据随后可以传输到 SAS、R 或 Python 中，进行统计建模、生存分析、倾向性评分方法和目标试验模拟。
 
 ---
 
-## 15. SAS PROC SQL Experience  
-## 15. SAS PROC SQL经验
+## 13. Hadoop, Hive, and Spark Experience / Hadoop、Hive 和 Spark 经验
 
-### English
+**English**
 
-I use PROC SQL extensively to extract, join, transform, aggregate, and validate healthcare and clinical data.
+I have experience with Hadoop-based environments and distributed data-processing concepts for large-scale healthcare datasets. I am familiar with HDFS, Hive, and Spark workflows used to store, query, transform, and summarize claims, EHR, and linked longitudinal records.
 
-I regularly use INNER JOIN, LEFT JOIN, FULL JOIN, subqueries, CASE expressions, GROUP BY, HAVING, UNION, DISTINCT, aggregate functions, calculated columns, and date functions.
+Hadoop-based systems are particularly useful when the source data are too large to process efficiently on a single machine. Hive provides SQL-like querying over distributed storage, while Spark supports distributed transformations, joins, aggregations, and analytical workflows.
+
+In healthcare analytics, I may use Spark to filter large claims tables, link enrollment and service records, create patient-level cohorts, derive longitudinal features, and prepare smaller analysis-ready datasets for SAS or R.
+
+I understand the importance of partitioning, minimizing data shuffling, selecting required columns, filtering early, and using efficient join strategies in distributed environments.
+
+**中文**
+
+我拥有基于 Hadoop 的环境和大规模医疗数据集分布式数据处理概念方面的经验。我熟悉用于存储、查询、转换和汇总理赔、EHR 及关联纵向记录的 HDFS、Hive 和 Spark 工作流程。
+
+当源数据规模太大而无法在单台机器上高效处理时，基于 Hadoop 的系统尤其有用。Hive 提供针对分布式存储的类 SQL 查询，而 Spark 支持分布式转换、连接、聚合和分析工作流程。
+
+在医疗数据分析中，我可以使用 Spark 来筛选大型理赔表、关联参保记录和服务记录、创建患者层面队列、推导纵向特征，并为 SAS 或 R 准备较小的分析就绪数据集。
+
+我理解在分布式环境中进行数据分区、尽量减少数据混洗（shuffling）、只选择所需列、尽早筛选以及使用高效连接策略的重要性。
+
+---
+
+## 14. SAS Programming Experience / SAS 编程经验
+
+**English**
+
+I have more than four years of experience using SAS for clinical trial programming, real-world evidence, healthcare analytics, and statistical analysis.
+
+My SAS work includes:
+
+- Data extraction
+- Data cleaning
+- Data transformation
+- Dataset merging
+- Cohort construction
+- Variable derivation
+- Statistical analysis
+- Tables, listings, and figures
+- Validation
+- Automation
+- Quality control
+
+I am experienced with Base SAS, DATA step programming, PROC SQL, macro programming, arrays, formats, informats, BY-group processing, retain statements, hash concepts, and common statistical and reporting procedures.
+
+Procedures I have used include: PROC SQL, PROC SORT, PROC TRANSPOSE, PROC FREQ, PROC MEANS, PROC SUMMARY, PROC UNIVARIATE, PROC REPORT, PROC TABULATE, PROC FORMAT, PROC LIFETEST, PROC PHREG, PROC LOGISTIC, PROC GLM, PROC MIXED, PROC SGPLOT.
+
+In clinical trials, I use SAS to develop and validate SDTM and ADaM datasets and to generate submission-quality tables, listings, and figures.
+
+In RWE, I use SAS for cohort construction, treatment-pattern analysis, healthcare utilization, cost analyses, survival analysis, logistic regression, linear regression, propensity-score modeling, matching, weighting, and sensitivity analyses.
+
+I emphasize clear code structure, reusable components, log review, metadata documentation, source-to-output traceability, and independent validation.
+
+**中文**
+
+我拥有四年以上使用 SAS 进行临床试验编程、真实世界证据、医疗数据分析和统计分析的经验。
+
+我的 SAS 工作内容包括：
+
+- 数据提取
+- 数据清洗
+- 数据转换
+- 数据集合并
+- 队列构建
+- 变量推导
+- 统计分析
+- 表格、列表和图形（TLF）
+- 验证
+- 自动化
+- 质量控制
+
+我熟练掌握 Base SAS、DATA 步编程、PROC SQL、宏编程、数组（arrays）、格式（formats）、输入格式（informats）、BY 组处理、RETAIN 语句、哈希（hash）概念以及常用的统计和报告过程。
+
+我使用过的过程包括：PROC SQL、PROC SORT、PROC TRANSPOSE、PROC FREQ、PROC MEANS、PROC SUMMARY、PROC UNIVARIATE、PROC REPORT、PROC TABULATE、PROC FORMAT、PROC LIFETEST、PROC PHREG、PROC LOGISTIC、PROC GLM、PROC MIXED、PROC SGPLOT。
+
+在临床试验中，我使用 SAS 开发和验证 SDTM 和 ADaM 数据集，并生成符合递交质量要求的表格、列表和图形。
+
+在 RWE 中，我使用 SAS 进行队列构建、治疗模式分析、医疗资源利用分析、费用分析、生存分析、逻辑回归、线性回归、倾向性评分建模、匹配、加权和敏感性分析。
+
+我注重清晰的代码结构、可重用的组件、日志审查、元数据文档、从源数据到输出的可追溯性以及独立验证。
+
+---
+
+## 15. SAS PROC SQL Experience / SAS PROC SQL 经验
+
+**English**
+
+I have extensive experience using PROC SQL in SAS to extract, join, transform, aggregate, and validate healthcare and clinical data.
+
+I regularly use: INNER JOIN, LEFT JOIN, FULL JOIN, subqueries, CASE expressions, GROUP BY, HAVING, UNION, DISTINCT, aggregate functions, calculated columns, date functions, and conditional logic.
+
+In claims analyses, I use SQL to join enrollment, medical, pharmacy, provider, and cost tables. In EHR analyses, I link patient, encounter, diagnosis, laboratory, medication, and outcome tables. In clinical trials, I use SQL to combine domains and derive analysis structures.
 
 I use SQL to apply inclusion and exclusion criteria, identify first or last events, define index dates, aggregate utilization, and create longitudinal patient-level records.
 
-I optimize performance by selecting only required variables, filtering early, avoiding unnecessary many-to-many joins, using indexed keys, and reducing repeated passes through large datasets.
+For example, I may identify each patient's earliest eligible treatment date using a grouped minimum date, then join that date back to baseline diagnoses, prior medications, and follow-up outcomes.
 
-I validate joins using source counts, unique patient counts, unmatched keys, duplicate records, and row-count changes.
+I optimize SQL performance by selecting only required variables, filtering early, avoiding unnecessary many-to-many joins, using indexed keys, and reducing repeated passes through large datasets.
 
-### 中文
+I validate joins by reviewing source counts, unique patient counts, unmatched keys, duplicated records, and changes in row counts.
 
-我经常使用PROC SQL提取、连接、转换、聚合和验证医疗及临床数据。
+**中文**
 
-常用语法包括INNER JOIN、LEFT JOIN、FULL JOIN、子查询、CASE表达式、GROUP BY、HAVING、UNION、DISTINCT、聚合函数、计算字段和日期函数。
+我在使用 SAS 中的 PROC SQL 提取、连接、转换、聚合和验证医疗及临床数据方面拥有丰富经验。
 
-我使用SQL应用入排标准、识别首次或末次事件、定义索引日期、汇总医疗利用，并创建纵向患者记录。
+我经常使用：INNER JOIN、LEFT JOIN、FULL JOIN、子查询、CASE 表达式、GROUP BY、HAVING、UNION、DISTINCT、聚合函数、计算列、日期函数以及条件逻辑。
 
-在性能优化方面，我只选择必要变量，尽早过滤，避免不必要的多对多连接，利用索引键，并减少对大型数据集的重复扫描。
+在理赔分析中，我使用 SQL 连接参保、医疗、药房、提供者和费用表。在 EHR 分析中，我关联患者、就诊、诊断、实验室、用药和结局表。在临床试验中，我使用 SQL 合并各域并推导分析结构。
 
-我会通过源数据记录数、唯一患者数、未匹配键、重复记录和行数变化验证连接结果。
+我使用 SQL 应用纳入和排除标准、识别首次或末次事件、定义索引日期、聚合医疗资源利用，并创建纵向患者层面记录。
 
----
+例如，我可以使用分组最小日期识别每位患者最早的符合条件的治疗日期，然后将该日期关联回基线诊断、既往用药和随访结局。
 
-## 16. SAS Macro Programming Experience  
-## 16. SAS宏编程经验
+我通过只选择所需变量、尽早筛选、避免不必要的多对多连接、使用索引键以及减少对大型数据集的重复扫描来优化 SQL 性能。
 
-### English
-
-I develop SAS macros to automate repetitive tasks, standardize derivations, and improve consistency.
-
-I use macro variables, positional and keyword parameters, conditional logic, iterative processing, dynamic dataset names, CALL SYMPUTX, PROC SQL INTO, and macro loops.
-
-I have created macros for cohort selection, date windows, baseline variables, treatment-emergent flags, summary statistics, survival analyses, repeated outputs, dataset comparison, log checking, and table production.
-
-I design macros with clear parameters, validation checks, and meaningful log messages. I test normal cases, edge cases, missing values, empty datasets, and unexpected parameter combinations.
-
-My goal is to automate repetitive work without making the analysis opaque or difficult to validate.
-
-### 中文
-
-我使用SAS宏自动化重复任务、标准化派生规则并提高跨项目一致性。
-
-我熟悉宏变量、位置参数、关键字参数、条件逻辑、循环处理、动态数据集名称、CALL SYMPUTX、PROC SQL INTO及宏循环。
-
-我开发过用于队列筛选、日期窗口、基线变量、治疗期间标志、描述性统计、生存分析、批量输出、数据集比较、日志检查和表格生成的宏。
-
-宏设计中，我会明确参数、设置校验，并在日志中输出有意义的信息。我也会测试正常情况、边界情况、缺失值、空数据集及异常参数组合。
-
-我的目标是减少重复代码，同时保持分析透明、易理解和易验证。
+我通过审查源记录数、唯一患者数、未匹配的键、重复记录以及行数变化来验证连接结果。
 
 ---
 
-## 17. R Programming Experience  
-## 17. R编程经验
+## 16. SAS Macro Programming Experience / SAS 宏编程经验
 
-### English
+**English**
 
-I use R for RWE, epidemiology, clinical research, statistical modeling, and healthcare analytics.
+I have extensive experience developing SAS macros to automate repetitive tasks, standardize derivations, and improve consistency across clinical trial and RWE projects.
 
-I work with packages such as dplyr, tidyr, data.table, ggplot2, survival, MatchIt, survey, tableone, broom, readr, and lubridate.
+I use: macro variables, positional parameters, keyword parameters, conditional logic, iterative processing, dynamic dataset names, dynamic variable lists, CALL SYMPUTX, PROC SQL INTO, macro loops, and reusable reporting templates.
 
-My R work includes cleaning, restructuring, cohort construction, exploratory analysis, Kaplan–Meier analysis, Cox models, logistic regression, linear regression, propensity-score matching, inverse probability weighting, standardized mean differences, visualization, and sensitivity analyses.
+Examples include macros for: cohort selection, date-window derivation, baseline variable creation, treatment-emergent flags, summary statistics, frequency tables, survival analyses, repeated output generation, dataset comparison, log checking, and table production.
 
-I also use reusable functions, structured projects, version control, and R Markdown for reproducible reporting.
+I design macros with clear parameter definitions, validation checks, and meaningful log messages. Where appropriate, I verify required parameters, confirm input datasets exist, and stop or warn when invalid conditions are detected.
 
-### 中文
+I also test macros using normal cases, edge cases, missing values, empty datasets, and unexpected parameter combinations.
 
-我使用R开展RWE、流行病学、临床研究、统计建模和医疗数据分析。
+My goal is to use macros to reduce repetitive code while maintaining transparency. I avoid excessive abstraction when it would make the analysis difficult to understand or validate.
 
-常用包包括dplyr、tidyr、data.table、ggplot2、survival、MatchIt、survey、tableone、broom、readr和lubridate。
+**中文**
 
-我的R工作包括数据清洗、重构、队列构建、探索性分析、Kaplan-Meier分析、Cox模型、logistic回归、线性回归、倾向评分匹配、逆概率加权、标准化均差、可视化及敏感性分析。
+我在开发 SAS 宏以自动化重复任务、标准化推导逻辑、提高临床试验和 RWE 项目一致性方面拥有丰富经验。
 
-我也使用可复用函数、结构化项目目录、版本控制和R Markdown进行可重复报告。
+我使用：宏变量、位置参数、关键字参数、条件逻辑、迭代处理、动态数据集名称、动态变量列表、CALL SYMPUTX、PROC SQL INTO、宏循环以及可重用的报告模板。
+
+宏应用示例包括：队列选择、日期窗口推导、基线变量创建、治疗期间出现标志（TEAE flags）、汇总统计、频数表、生存分析、批量输出生成、数据集比较、日志检查和表格生成。
+
+我设计宏时会明确参数定义、加入验证检查并输出有意义的日志信息。在适当情况下，我会验证必需参数、确认输入数据集存在，并在检测到无效条件时停止执行或发出警告。
+
+我还会使用正常情况、边界情况、缺失值、空数据集和意外参数组合来测试宏。
+
+我的目标是通过宏减少重复代码，同时保持透明度。当过度抽象会使分析难以理解或验证时，我会避免过度抽象。
+
+---
+## 17. R Programming Experience / R 编程经验
+
+**English**
+
+I have experience using R for real-world evidence, epidemiology, clinical research, statistical modeling, and healthcare analytics.
+
+I use packages such as: dplyr, tidyr, data.table, ggplot2, survival, MatchIt, survey, tableone, broom, readr, lubridate.
+
+My R work includes data cleaning, restructuring, cohort construction, exploratory analysis, statistical modeling, balance diagnostics, visualization, and report generation.
+
+In RWE studies, I use R for Kaplan–Meier analysis, Cox models, logistic regression, linear regression, propensity-score matching, inverse probability weighting, standardized mean differences, and sensitivity analyses.
+
+I develop reusable functions and scripts and use R Markdown or similar tools for reproducible reporting. I also use version control and structured project folders to maintain clear analytical workflows.
+
+R is particularly useful for advanced visualization, flexible statistical packages, causal inference methods, and reproducible research reports.
+
+**中文**
+
+我拥有使用 R 进行真实世界证据、流行病学、临床研究、统计建模和医疗数据分析的经验。
+
+我使用的 R 包包括：dplyr、tidyr、data.table、ggplot2、survival、MatchIt、survey、tableone、broom、readr、lubridate。
+
+我的 R 工作包括数据清洗、数据重构、队列构建、探索性分析、统计建模、均衡性诊断、可视化和报告生成。
+
+在 RWE 研究中，我使用 R 进行 Kaplan–Meier 分析、Cox 模型、逻辑回归、线性回归、倾向性评分匹配、逆概率加权、标准化均值差（SMD）计算和敏感性分析。
+
+我开发可重用的函数和脚本，并使用 R Markdown 或类似工具生成可重复的报告。我还使用版本控制和结构化的项目文件夹来维护清晰的分析工作流程。
+
+R 在高级可视化、灵活的统计包、因果推断方法和可重复研究报告方面尤为有用。
 
 ---
 
-## 18. Python Programming Experience  
-## 18. Python编程经验
+## 18. Python Programming Experience / Python 编程经验
 
-### English
+**English**
 
-I use Python for RWE, healthcare analytics, data engineering, automation, NLP, and machine learning.
+I have experience using Python for real-world evidence, healthcare analytics, data engineering, automation, natural language processing, and machine learning.
 
-I work with pandas, NumPy, SciPy, scikit-learn, matplotlib, SQLAlchemy, PyTorch, and MONAI.
+I use libraries such as: pandas, NumPy, SciPy, scikit-learn, matplotlib, SQLAlchemy, PyTorch, MONAI.
 
-My work includes data extraction, cleaning, transformation, cohort construction, feature engineering, predictive modeling, duplicate detection, missingness summaries, date consistency checks, range checks, and count reconciliation.
+My work includes data extraction, cleaning, transformation, cohort construction, feature engineering, exploratory analysis, predictive modeling, and data-quality automation.
 
-I have also used NLP methods to extract disease characteristics, symptoms, outcomes, and physician assessments from clinical text.
+For large healthcare datasets, I use pandas or database-based processing to manipulate patient-level records, join data sources, identify events, and derive longitudinal variables.
 
-I emphasize modular code, reusable functions, error handling, version control, validation, and documentation.
+I use Python to automate checks such as duplicate detection, missingness summaries, date consistency, range checking, and reconciliation of counts.
 
-### 中文
+I have also worked with natural language processing approaches for clinical text. Clinical notes may contain disease characteristics, symptoms, outcomes, and physician assessments that are unavailable in structured fields.
 
-我使用Python开展RWE、医疗数据分析、数据工程、自动化、自然语言处理和机器学习。
+My machine-learning experience includes classification, prediction, feature engineering, model evaluation, and selected deep-learning applications involving medical imaging.
 
-常用库包括pandas、NumPy、SciPy、scikit-learn、matplotlib、SQLAlchemy、PyTorch和MONAI。
+I emphasize modular code, reusable functions, exception handling, version control, validation, and clear documentation.
 
-相关工作包括数据提取、清洗、转换、队列构建、特征工程、预测建模、重复检测、缺失汇总、日期一致性检查、范围检查及计数核对。
+**中文**
 
-我也使用过NLP方法从临床文本中提取疾病特征、症状、结局和医生评估。
+我拥有使用 Python 进行真实世界证据、医疗数据分析、数据工程、自动化、自然语言处理和机器学习的经验。
 
-我重视模块化代码、可复用函数、异常处理、版本控制、验证和文档记录。
+我使用的库包括：pandas、NumPy、SciPy、scikit-learn、matplotlib、SQLAlchemy、PyTorch、MONAI。
 
----
+我的工作包括数据提取、清洗、转换、队列构建、特征工程、探索性分析、预测建模和数据质量自动化。
 
-## 19. Unix and Linux Experience  
-## 19. Unix和Linux经验
+对于大型医疗数据集，我使用 pandas 或基于数据库的处理方式来操作患者层面记录、连接数据源、识别事件并推导纵向变量。
 
-### English
+我使用 Python 自动化各类检查，例如重复检测、缺失情况汇总、日期一致性、范围检查以及记录数核对。
 
-I use Unix and Linux for clinical programming, RWE analytics, batch processing, and file management.
+我还使用自然语言处理方法处理临床文本。临床病历中可能包含结构化字段中没有的疾病特征、症状、结局和医生评估信息。
 
-I am familiar with commands such as ls, cd, pwd, cp, mv, rm, mkdir, find, grep, awk, sed, sort, uniq, head, tail, wc, and chmod.
+我的机器学习经验包括分类、预测、特征工程、模型评估，以及涉及医学影像的部分深度学习应用。
 
-I use Unix to navigate study directories, manage programs and outputs, review logs, submit jobs, organize production and validation folders, and troubleshoot execution issues.
-
-I also use shell scripts to automate SAS submissions, log checks, file comparisons, archiving, transfer validation, and file inventories.
-
-### 中文
-
-我使用Unix和Linux进行临床编程、RWE分析、批处理和文件管理。
-
-我熟悉ls、cd、pwd、cp、mv、rm、mkdir、find、grep、awk、sed、sort、uniq、head、tail、wc和chmod等命令。
-
-我使用Unix浏览研究目录、管理程序和输出、检查日志、提交作业、组织生产和验证目录，并排查运行问题。
-
-我也使用shell脚本自动化SAS程序提交、日志检查、文件比较、归档、传输验证和文件清单生成。
+我注重模块化代码、可重用函数、异常处理、版本控制、验证和清晰的文档记录。
 
 ---
 
-## 20. SQL and Other Programming Experience  
-## 20. SQL及其他编程经验
+## 19. Unix and Linux Experience / Unix 和 Linux 经验
 
-### English
+**English**
 
-In addition to SAS, R, Python, and Unix shell scripting, I use SQL and Spark-based processing.
+I have experience working in Unix and Linux environments for clinical programming, RWE analytics, batch processing, and file management.
 
-SQL is central to my work because healthcare data are commonly distributed across relational tables. I use it for extraction, joins, aggregation, cohort logic, validation, and analytic table construction.
+I use commands and tools such as: ls, cd, pwd, cp, mv, rm, mkdir, find, grep, awk, sed, sort, uniq, head, tail, wc, chmod.
 
-I am also familiar with OMOP concepts, HL7 FHIR structures, and semantic technologies such as SPARQL. These support data harmonization, standardized querying, and interoperability.
+I use Unix systems to navigate study directories, manage program and output files, review logs, monitor batch jobs, organize production and validation folders, and troubleshoot execution issues.
 
-My programming experience is focused on healthcare analytics, statistical programming, reproducibility, automation, and scalable data processing.
+I also use shell scripts to automate repetitive tasks such as submitting SAS programs, checking logs, comparing files, archiving outputs, validating transfers, and creating file inventories.
 
-### 中文
+In controlled clinical environments, I work carefully with permissions, directory conventions, versioned folders, and production/validation separation.
 
-除SAS、R、Python和Unix shell外，我还使用SQL及基于Spark的处理方式。
+**中文**
 
-SQL是我工作的核心工具，因为医疗数据通常分布在多个关系表中。我使用SQL进行提取、连接、聚合、队列逻辑、数据验证及分析表构建。
+我拥有在 Unix 和 Linux 环境中进行临床编程、RWE 分析、批处理和文件管理的经验。
 
-我也熟悉OMOP概念、HL7 FHIR结构及SPARQL等语义技术，这些工具有助于数据统一、标准化查询和互操作。
+我使用的命令和工具包括：ls、cd、pwd、cp、mv、rm、mkdir、find、grep、awk、sed、sort、uniq、head、tail、wc、chmod。
 
-我的编程背景主要聚焦于医疗分析、统计编程、可重复性、自动化及可扩展数据处理。
+我使用 Unix 系统浏览研究目录、管理程序和输出文件、审查日志、监控批处理作业、组织生产（production）和验证（validation）文件夹，以及排查执行问题。
 
----
+我还使用 shell 脚本自动化重复任务，例如提交 SAS 程序、检查日志、比较文件、归档输出、验证数据传输以及创建文件清单。
 
-## 21. Chi-Square Test Experience  
-## 21. 卡方检验经验
-
-### English
-
-I use chi-square tests to evaluate associations between categorical variables, such as treatment response, adverse-event occurrence, hospitalization, comorbidity prevalence, utilization category, discontinuation, disease status, and demographic group.
-
-I typically use PROC FREQ in SAS. Before interpretation, I assess independence and expected cell counts. If expected counts are small, I use Fisher’s exact test.
-
-A chi-square test indicates association but not magnitude, so I may also report risk differences, risk ratios, odds ratios, or Cramér’s V.
-
-In RWE, statistical significance does not establish causality. Results may reflect confounding, selection, coding practices, or access to care.
-
-### 中文
-
-我使用卡方检验评估分类变量之间的关联，例如治疗反应、不良事件、住院、合并症、医疗利用类别、停药、疾病状态和人口学分组。
-
-在SAS中通常使用PROC FREQ。解释结果前，我会检查观察值独立性和期望频数；如果期望频数过小，则考虑Fisher精确检验。
-
-卡方检验只能说明是否存在关联，不能直接反映效应大小，因此我可能同时报告风险差、风险比、比值比或Cramér’s V。
-
-在RWE研究中，统计学显著并不代表因果关系，结果可能受到混杂、选择、编码行为或医疗可及性影响。
+在受控的临床环境中，我会谨慎处理权限、目录规范、版本化文件夹以及生产/验证环境的分离。
 
 ---
 
-## 22. T-Test Experience  
-## 22. T检验经验
+## 20. SQL and Other Programming Experience / SQL 及其他编程经验
 
-### English
+**English**
 
-I use t-tests to compare continuous variables between two groups, including age, laboratory values, change from baseline, treatment duration, length of stay, costs, quality-of-life scores, and biomarkers.
+In addition to SAS, R, Python, and Unix shell scripting, I have experience with SQL and Spark-based processing.
 
-I assess independence, approximate normality, sample size, outliers, and variance equality. When variances differ, I use Welch’s t-test. For paired measurements, I use a paired t-test.
+SQL is central to my work because healthcare data are commonly stored across relational tables. I use SQL for extraction, joins, aggregation, cohort logic, data validation, and analytical table construction.
 
-If assumptions are not met, I consider Wilcoxon rank-sum or signed-rank tests.
+I am also familiar with OMOP-standardized concepts, HL7 FHIR structures, and semantic data concepts such as SPARQL. These frameworks are not traditional programming languages in the same sense as SAS or Python, but they support healthcare data harmonization, standardized querying, and interoperability.
 
-I report mean differences, confidence intervals, and p-values. In observational studies, I also consider confounding and may use adjusted regression.
+My programming background is focused primarily on healthcare analytics, statistical programming, reproducibility, automation, and scalable data processing rather than general software application development.
 
-### 中文
+**中文**
 
-我使用T检验比较两组连续变量，例如年龄、实验室值、相对基线变化、治疗持续时间、住院时长、医疗成本、生活质量评分和生物标志物。
+除了 SAS、R、Python 和 Unix shell 脚本外，我还拥有 SQL 和基于 Spark 的数据处理经验。
 
-我会评估独立性、近似正态性、样本量、异常值和方差齐性。方差不齐时使用Welch T检验；同一患者前后测量则考虑配对T检验。
+SQL 是我工作的核心，因为医疗数据通常存储在多个关系表中。我使用 SQL 进行数据提取、连接、聚合、队列逻辑构建、数据验证和分析表构建。
 
-若假设不满足，则考虑Wilcoxon秩和检验或符号秩检验。
+我还熟悉 OMOP 标准化概念、HL7 FHIR 结构以及 SPARQL 等语义数据概念。这些框架虽然不是像 SAS 或 Python 那样的传统编程语言，但它们支持医疗数据统一化、标准化查询和互操作性。
 
-我会报告均值差、置信区间和P值。在观察性研究中，还会考虑混杂，并使用调整后的回归模型。
-
----
-
-## 23. ANOVA Experience  
-## 23. 方差分析经验
-
-### English
-
-I use ANOVA to compare continuous outcomes across three or more groups, such as laboratory values, costs, length of stay, quality-of-life scores, and treatment duration.
-
-I assess independence, residual normality, and variance homogeneity. If the overall test is significant, I use adjusted post hoc comparisons such as Tukey’s method.
-
-If variances are unequal, I may use Welch’s ANOVA. If distributions are highly non-normal, I may use the Kruskal–Wallis test.
-
-For adjusted, repeated-measures, or clustered analyses, I use ANCOVA, mixed models, regression, or GEE rather than simple one-way ANOVA.
-
-### 中文
-
-我使用ANOVA比较三个或以上组别的连续结局，例如实验室指标、医疗成本、住院时长、生活质量评分和治疗持续时间。
-
-我会评估独立性、残差正态性和方差齐性。若总体检验显著，则采用Tukey等方法进行多重比较调整。
-
-若方差不齐，可使用Welch ANOVA；若数据高度非正态，可使用Kruskal-Wallis检验。
-
-对于需要协变量调整、重复测量或聚类结构的数据，我会使用ANCOVA、混合模型、回归或GEE，而不是简单单因素ANOVA。
+我的编程背景主要专注于医疗数据分析、统计编程、可重复性、自动化和可扩展的数据处理，而非通用软件应用开发。
 
 ---
 
-## 24. Linear Regression Experience  
-## 24. 线性回归经验
+## 21. Chi-Square Test Experience / 卡方检验经验
 
-### English
+**English**
 
-I use linear regression for continuous outcomes such as laboratory values, change from baseline, healthcare costs, length of stay, quality-of-life scores, blood pressure, biomarkers, and treatment duration.
+I have experience using chi-square tests to evaluate associations between categorical variables in clinical trial and RWE analyses.
 
-I report coefficients, confidence intervals, and p-values. I assess linearity, independence, residual normality, homoscedasticity, multicollinearity, outliers, leverage, and influential observations.
+Examples include comparing groups by: treatment response, adverse-event occurrence, hospitalization, comorbidity prevalence, healthcare utilization category, treatment discontinuation, disease status, and demographic categories.
 
-If assumptions are not met, I may use transformations, robust standard errors, generalized linear models, or quantile regression.
+I typically use PROC FREQ in SAS to generate contingency tables, chi-square statistics, and p-values.
 
-Healthcare cost data are often right-skewed, so I may use log transformation or a GLM with an appropriate distribution and link.
+Before interpreting the test, I assess whether observations are independent and whether expected cell counts are sufficiently large. If expected frequencies are small, I may use Fisher's exact test.
 
-### 中文
+The chi-square test indicates whether there is evidence of an association, but it does not measure the magnitude of the association. Therefore, I may also report risk differences, risk ratios, odds ratios, or measures such as Cramér's V.
 
-我使用线性回归分析实验室值、相对基线变化、医疗成本、住院时长、生活质量、血压、生物标志物和治疗持续时间等连续结局。
+In RWE studies, a statistically significant chi-square result does not establish causality. Differences may reflect confounding, selection, coding practices, or differences in healthcare access. I interpret results together with clinical relevance and adjusted analyses.
 
-我报告回归系数、置信区间和P值，并评估线性关系、独立性、残差正态性、同方差性、多重共线性、异常值、杠杆点和影响点。
+**中文**
 
-若假设不满足，可考虑变量转换、稳健标准误、广义线性模型或分位数回归。
+我拥有在临床试验和 RWE 分析中使用卡方检验评估分类变量之间关联的经验。
 
-医疗成本数据通常右偏，因此可能需要对数转换，或采用合适分布和连接函数的广义线性模型。
+应用示例包括按以下变量进行组间比较：治疗缓解、不良事件发生、住院、合并症患病率、医疗资源利用类别、治疗终止、疾病状态以及人口统计学类别。
 
----
+我通常使用 SAS 中的 PROC FREQ 生成列联表、卡方统计量和 p 值。
 
-## 25. Logistic Regression Experience  
-## 25. Logistic回归经验
+在解读检验结果之前，我会评估观测值是否独立以及期望频数是否足够大。如果期望频数较小，我可能使用 Fisher 精确检验。
 
-### English
+卡方检验表明是否存在关联的证据，但不能衡量关联的强度。因此，我可能还会报告风险差、风险比、比值比（OR）或 Cramér's V 等指标。
 
-I use logistic regression for binary outcomes such as response, hospitalization, adverse events, progression, discontinuation, and readmission.
-
-I report odds ratios and 95% confidence intervals and interpret odds ratios carefully when outcomes are common.
-
-I assess outcome coding, linearity in the logit, multicollinearity, sparse cells, separation, influence, calibration, discrimination, and interactions.
-
-For rare events or separation, I may use exact, penalized, or Firth logistic regression.
-
-I also use logistic regression to estimate propensity scores. Covariates are selected based mainly on subject-matter knowledge and relationships with treatment and outcome, not only automated selection.
-
-### 中文
-
-我使用Logistic回归分析二分类结局，例如治疗反应、住院、不良事件、疾病进展、治疗终止和再入院。
-
-我报告比值比和95%置信区间；当结局较常见时，会谨慎解释比值比，因为它可能明显不同于风险比。
-
-我会评估结局编码、连续变量在logit中的线性关系、多重共线性、稀疏单元、完全分离、影响点、校准度、区分度及交互作用。
-
-对于罕见事件或分离问题，可采用精确Logistic、惩罚方法或Firth Logistic回归。
-
-我也使用Logistic回归估计倾向评分。变量选择主要基于专业知识以及其与治疗分配和结局的关系，而不是仅依赖自动筛选。
+在 RWE 研究中，具有统计学意义的卡方检验结果并不能确立因果关系。差异可能反映混杂、选择、编码习惯或医疗可及性差异。我会结合临床相关性和调整后的分析来解读结果。
 
 ---
 
-## 26. Survival Analysis Experience  
-## 26. 生存分析经验
+## 22. T-Test Experience / t 检验经验
 
-### English
+**English**
 
-I have extensive experience with Kaplan–Meier estimation, log-rank tests, Cox models, median survival, landmark rates, hazard ratios, confidence intervals, censoring, competing risks, and time-dependent variables.
+I have experience using t-tests to compare continuous variables between two groups in clinical trial and RWE analyses.
 
-Clinical-trial endpoints include overall survival, progression-free survival, duration of response, event-free survival, time to progression, and time to treatment failure. RWE endpoints may include hospitalization-free survival, time to treatment discontinuation, time to next treatment, readmission, progression, or adverse events.
+Examples include: age, laboratory values, change from baseline, treatment duration, length of stay, healthcare costs, quality-of-life scores, and biomarker levels.
 
-I carefully define time zero, event definition, event date, censoring date, follow-up, population, data cutoff, treatment switching, and loss to follow-up.
+I assess independence, approximate normality, sample size, outliers, and equality of variances.
 
-I assess proportional hazards using graphical methods, Schoenfeld residuals, and time interactions. If PH does not hold, I may use stratified Cox models, time-varying effects, restricted mean survival time, or milestone survival.
+When group variances are similar, a pooled t-test may be appropriate. When variances are unequal, I use Welch's t-test.
 
-For competing risks, I may use cumulative incidence, cause-specific hazards, or Fine–Gray models depending on the estimand.
+For paired measurements, such as baseline and post-treatment values in the same patients, I use a paired t-test if the distribution of within-patient differences is appropriate.
 
-### 中文
+If assumptions are not satisfied, I consider nonparametric alternatives such as the Wilcoxon rank-sum test or Wilcoxon signed-rank test.
 
-我具有丰富的生存分析经验，包括Kaplan-Meier估计、log-rank检验、Cox比例风险模型、中位生存时间、里程碑生存率、风险比、置信区间、删失、竞争风险及时间依赖变量。
+I report the mean difference, confidence interval, and p-value rather than only the p-value. In RWE studies, I also consider confounding and may use regression models for adjusted comparisons.
 
-临床试验终点包括总生存期、无进展生存期、缓解持续时间、无事件生存期、至进展时间和至治疗失败时间。RWE终点还可包括无住院生存、至治疗终止时间、至下一治疗时间、再入院、疾病进展或不良事件。
+**中文**
 
-我会明确时间零点、事件定义、事件日期、删失日期、随访期、分析人群、数据截止日期、换药和失访。
+我拥有在临床试验和 RWE 分析中使用 t 检验比较两组间连续变量的经验。
 
-我使用图形方法、Schoenfeld残差和时间交互项评估比例风险假设。若不满足，可考虑分层Cox、时变效应、限制平均生存时间或里程碑生存分析。
+应用示例包括：年龄、实验室数值、相对基线的变化、治疗持续时间、住院时长、医疗费用、生活质量评分和生物标志物水平。
 
-对于竞争风险，根据目标估计量，可使用累积发生函数、原因特异性风险模型或Fine-Gray模型。
+我会评估独立性、近似正态性、样本量、离群值和方差齐性。
 
----
+当组间方差相近时，合并方差 t 检验（pooled t-test）可能是合适的。当方差不齐时，我使用 Welch t 检验。
 
-## 27. Propensity Score Methods  
-## 27. 倾向评分方法
+对于配对测量数据，例如同一患者的基线值和治疗后值，如果患者内差值的分布合适，我会使用配对 t 检验。
 
-### English
+如果假设不满足，我会考虑非参数替代方法，例如 Wilcoxon 秩和检验或 Wilcoxon 符号秩检验。
 
-I use propensity-score methods to reduce measured confounding in observational comparative-effectiveness studies.
-
-My workflow is to define the causal question and estimand, choose the design, identify baseline confounders, estimate propensity scores, assess overlap and positivity, apply matching or weighting, evaluate balance, estimate effects, and perform sensitivity analyses.
-
-I use nearest-neighbor matching, caliper matching, variable ratios, and weighting approaches targeting ATE or ATT.
-
-After adjustment, I assess standardized mean differences, propensity-score distributions, extreme weights, overlap, and effective sample size.
-
-Propensity-score methods address measured confounding only and do not remove unmeasured confounding, measurement error, selection bias, or poor design.
-
-### 中文
-
-我使用倾向评分方法降低观察性比较效果研究中的已测量混杂。
-
-一般流程包括：明确因果问题和目标估计量，选择研究设计，识别基线混杂因素，估计倾向评分，评估重叠性和正值性，实施匹配或加权，检查协变量平衡，估计治疗效应，并开展敏感性分析。
-
-我使用过最近邻匹配、卡钳匹配、不同比例匹配，以及针对ATE或ATT的加权方法。
-
-调整后，我会检查标准化均差、倾向评分分布、极端权重、组间重叠和有效样本量。
-
-倾向评分只能控制已测量混杂，不能消除未测量混杂、测量误差、选择偏倚或设计缺陷。
+我报告均值差、置信区间和 p 值，而不仅仅是 p 值。在 RWE 研究中，我还会考虑混杂因素，并可能使用回归模型进行调整后的比较。
 
 ---
 
-## 28. Missing Data  
-## 28. 缺失数据
+## 23. ANOVA Experience / 方差分析（ANOVA）经验
 
-### English
+**English**
 
-My missing-data approach begins with understanding why values are missing and how missingness relates to exposure, outcome, and patient characteristics.
+I have experience using ANOVA to compare continuous outcomes across three or more treatment groups, patient cohorts, or clinical subgroups.
 
-I assess missing percentages, patterns by treatment, time, site, provider, and observed variables, and whether missingness may be informative.
+Examples include comparing: laboratory values across treatment groups, healthcare costs across insurance populations, length of stay across disease-severity categories, quality-of-life scores across response groups, and treatment duration across lines of therapy.
 
-Methods may include complete-case analysis, missing indicators, single or multiple imputation, inverse probability weighting, model-based methods, and sensitivity analyses.
+I assess independence, approximate normality of residuals, and homogeneity of variances.
 
-In EHR data, missingness often reflects clinical decision-making, so it may be informative rather than random.
+If the overall ANOVA is statistically significant, I perform appropriate post hoc comparisons with adjustment for multiple testing, such as Tukey's method.
 
-I report the amount of missingness, the method used, assumptions, and sensitivity analyses.
+If equal-variance assumptions are not met, I consider Welch's ANOVA. If the distribution is highly non-normal or strongly affected by outliers, I may use the Kruskal–Wallis test.
 
-### 中文
+For adjusted analyses, repeated measures, or clustered data, I use regression, ANCOVA, mixed models, or generalized estimating equations rather than a basic one-way ANOVA.
 
-我处理缺失数据时，首先理解数据为什么缺失，以及缺失机制与暴露、结局和患者特征之间的关系。
+**中文**
 
-我会评估缺失比例、不同治疗组、时间、中心、医生和观察变量下的缺失模式，并判断缺失是否具有信息性。
+我拥有使用方差分析（ANOVA）比较三个或以上治疗组、患者队列或临床亚组间连续结局的经验。
 
-可采用完整病例分析、缺失指示变量、单次或多重插补、逆概率加权、模型法和敏感性分析。
+应用示例包括比较：不同治疗组的实验室数值、不同保险人群的医疗费用、不同疾病严重程度类别的住院时长、不同缓解组的生活质量评分，以及不同治疗线的治疗持续时间。
 
-在EHR中，缺失往往反映临床决策，因此可能不是随机缺失。
+我会评估独立性、残差的近似正态性以及方差齐性。
 
-我会报告缺失程度、所用方法、关键假设及敏感性分析结果。
+如果总体 ANOVA 具有统计学意义，我会进行适当的事后（post hoc）比较，并对多重检验进行校正，例如使用 Tukey 方法。
 
----
+如果方差齐性假设不满足，我会考虑 Welch ANOVA。如果分布严重偏离正态或受离群值影响较大，我可能使用 Kruskal–Wallis 检验。
 
-## 29. Bias in RWE Studies  
-## 29. RWE研究中的偏倚
-
-### English
-
-Important biases include confounding by indication, selection bias, information bias, misclassification, immortal time bias, prevalent-user bias, time-lag bias, surveillance bias, channeling bias, informative censoring, reverse causation, and residual confounding.
-
-Active-comparator, new-user designs and propensity-score methods can reduce measured confounding.
-
-Aligning eligibility, treatment assignment, and time zero helps prevent immortal time bias. New-user designs reduce prevalent-user bias.
-
-No statistical adjustment can fully rescue a fundamentally biased design, so I prioritize design decisions before modeling.
-
-### 中文
-
-RWE研究中的重要偏倚包括适应证混杂、选择偏倚、信息偏倚、误分类、不死时间偏倚、既往使用者偏倚、时间滞后偏倚、监测偏倚、渠道偏倚、信息性删失、反向因果和残余混杂。
-
-主动对照、新使用者设计及倾向评分方法可降低已测量混杂。
-
-对齐入选条件、治疗分配和时间零点有助于防止不死时间偏倚；新使用者设计有助于降低既往使用者偏倚。
-
-统计调整无法完全挽救存在根本设计缺陷的研究，因此我会优先优化设计，再进行建模。
+对于调整分析、重复测量或聚类数据，我会使用回归、协方差分析（ANCOVA）、混合模型或广义估计方程（GEE），而不是基本的单因素 ANOVA。
 
 ---
 
-## 30. Production Analysis Experience  
-## 30. 生产分析经验
+## 24. Linear Regression Experience / 线性回归经验
 
-### English
+**English**
 
-I have extensive production-analysis experience in clinical trial and RWE settings where deliverables must meet specifications, timelines, quality standards, and audit requirements.
+I have experience using linear regression in clinical trial and RWE analyses to evaluate relationships between continuous outcomes and demographic, clinical, treatment-related, or healthcare factors.
 
-My workflow includes reviewing the protocol, SAP, specifications, and shells; confirming populations and endpoints; developing production programs; performing log and data checks; generating datasets and outputs; supporting independent validation; investigating discrepancies; documenting resolutions; and delivering approved outputs.
+Examples of continuous outcomes include: laboratory values, change from baseline, healthcare costs, length of stay, quality-of-life scores, blood pressure, biomarker levels, and treatment duration.
 
-I check errors, warnings, uninitialized variables, invalid conversions, duplicate keys, missingness, population counts, denominators, treatment assignments, event timing, and shell alignment.
+I use simple linear regression for one predictor and multiple linear regression when adjusting for several covariates.
 
-When production and validation differ, I compare specifications, datasets, derivations, and model settings rather than assuming either side is correct.
+I report regression coefficients, confidence intervals, and p-values. The coefficient represents the expected change in the outcome associated with a one-unit change in the predictor, holding other variables constant.
 
-### 中文
+I assess: linearity, independence, normality of residuals, homoscedasticity, multicollinearity, outliers, leverage, and influential observations.
 
-我在临床试验和RWE环境中具有丰富的生产分析经验，交付物需要满足预先定义的规格、时间线、质量标准和审计要求。
+I review residual plots and diagnostic measures. If assumptions are not met, I consider variable transformation, robust standard errors, generalized linear models, quantile regression, or other alternatives.
 
-我的流程包括审阅方案、SAP、数据规格和输出壳表；确认分析人群和终点；开发生产程序；执行日志和数据检查；生成数据集和输出；支持独立验证；调查差异；记录解决过程；并交付批准后的结果。
+Cost data are often right-skewed and may not be well modeled using ordinary linear regression without modification. Depending on the objective, I may use log transformation or a generalized linear model with a suitable distribution and link function.
 
-我会检查错误、警告、未初始化变量、无效转换、重复键、异常缺失、分析人群计数、分母、治疗分组、事件时间及壳表一致性。
+In observational research, linear regression can adjust for measured covariates, but it does not automatically remove bias from unmeasured confounding or model misspecification.
 
-当生产和验证结果不一致时，我会比较规格、数据集、派生逻辑和模型设置，而不是默认某一方正确。
+**中文**
 
----
+我拥有在临床试验和 RWE 分析中使用线性回归评估连续结局与人口统计学、临床、治疗相关或医疗因素之间关系的经验。
 
-## 31. Quality Control and Validation  
-## 31. 质量控制与验证
+连续结局的示例包括：实验室数值、相对基线的变化、医疗费用、住院时长、生活质量评分、血压、生物标志物水平和治疗持续时间。
 
-### English
+单个预测变量时我使用简单线性回归，需要调整多个协变量时我使用多元线性回归。
 
-My QC approach includes preventive controls such as clear specifications, programming conventions, validated macros, version control, controlled source data, structured folders, and peer review.
+我报告回归系数、置信区间和 p 值。回归系数表示在其他变量保持不变的情况下，预测变量每变化一个单位，结局的预期变化量。
 
-Detective controls include independent programming, dataset comparison, output comparison, log review, record-level checks, reconciliation, range checks, frequency checks, temporal checks, and cross-domain consistency.
+我会评估：线性关系、独立性、残差正态性、方差齐性（同方差性）、多重共线性、离群值、杠杆值和强影响点。
 
-For cohort studies, I validate patient counts at every inclusion and exclusion step. For derived variables, I review edge cases such as missing dates, simultaneous events, multiple treatments, enrollment gaps, and conflicting records.
+我会审查残差图和诊断指标。如果假设不满足，我会考虑变量变换、稳健标准误、广义线性模型、分位数回归或其他替代方法。
 
-QC should be risk-based, with more intensive validation for complex and decision-critical derivations.
+费用数据通常呈右偏分布，未经修正的普通线性回归可能无法很好地拟合。根据研究目标，我可能使用对数变换，或使用具有合适分布和连接函数的广义线性模型。
 
-### 中文
-
-我的质量控制方法包括预防性控制和发现性控制。
-
-预防性控制包括清晰规格、统一编程规范、经过验证的宏、版本控制、受控源数据、结构化目录和同行审阅。
-
-发现性控制包括独立编程、数据集比较、输出比较、日志检查、记录级核查、核对、范围检查、频数检查、时间检查和跨域一致性检查。
-
-对于队列研究，我会在每个纳入和排除步骤验证患者人数。对于派生变量，我会重点检查缺失日期、同时发生事件、多重治疗、参保中断和冲突记录等边界情况。
-
-质量控制应基于风险，复杂且影响决策的派生需要更严格的验证。
+在观察性研究中，线性回归可以调整已测量的协变量，但不能自动消除未测量混杂或模型设定错误带来的偏倚。
 
 ---
 
-## 32. Healthcare Utilization and Cost Analysis  
-## 32. 医疗资源利用与成本分析
+## 25. Logistic Regression Experience / 逻辑回归经验
 
-### English
+**English**
 
-I evaluate inpatient admissions, hospital days, emergency visits, outpatient visits, specialist visits, procedures, diagnostics, medications, home care, and rehabilitation.
+I have experience using logistic regression to analyze binary outcomes in clinical trials and RWE studies.
 
-Cost outcomes may include total, medical, pharmacy, inpatient, outpatient, emergency, disease-related, and all-cause costs.
+Examples include: treatment response versus no response, hospitalization versus no hospitalization, adverse event versus no adverse event, disease progression versus no progression, treatment discontinuation versus continuation, and readmission versus no readmission.
 
-I define whether outcomes are events, unique days, episodes, or patients with at least one event. For hospitalizations, multiple claims may represent one admission, so I create episode-level logic.
+I use univariable logistic regression to examine individual associations and multivariable logistic regression to adjust for demographic, clinical, and treatment-related covariates.
 
-Cost data are often skewed, have outliers, and may contain many zeros. I may report means, medians, interquartile ranges, confidence intervals, and per-patient-per-month values.
+I report odds ratios and 95% confidence intervals. I interpret odds ratios carefully, particularly when outcomes are common, because the odds ratio may differ substantially from the risk ratio.
 
-Adjusted methods may include GLMs, two-part models, bootstrapping, or transformed regression.
+I assess: correct outcome coding, linearity in the logit for continuous predictors, multicollinearity, sparse cells, separation, influential observations, model calibration, model discrimination, and interaction terms.
 
-### 中文
+For rare events or separation, I may consider exact logistic regression, penalized methods, or Firth logistic regression.
 
-我分析住院、住院天数、急诊、门诊、专科就诊、操作、诊断检查、药物、居家护理和康复等医疗资源利用。
+In RWE studies, I also use logistic regression to estimate propensity scores. The predicted probability of treatment can then be used for matching, stratification, weighting, or covariate adjustment.
 
-成本结局可包括总成本、医疗成本、药房成本、住院成本、门诊成本、急诊成本、疾病相关成本及全因成本。
+I select propensity-score variables based primarily on subject-matter knowledge and their relationship with treatment assignment and outcome, rather than relying only on automated statistical selection.
 
-我会明确结局是按事件数、唯一日期、医疗事件阶段，还是至少发生一次事件的患者数进行统计。对于住院，多个理赔记录可能属于同一次住院，因此需要构建住院事件级算法。
+**中文**
 
-成本数据常右偏、含异常值，并可能有大量零值。我会报告均值、中位数、四分位距、置信区间及每患者每月成本。
+我拥有在临床试验和 RWE 研究中使用逻辑回归分析二分类结局的经验。
 
-调整分析可采用广义线性模型、两部分模型、bootstrap或变换后的回归模型。
+应用示例包括：治疗缓解与未缓解、住院与未住院、发生不良事件与未发生不良事件、疾病进展与未进展、治疗终止与继续治疗、再入院与未再入院。
+
+我使用单变量逻辑回归检验单个变量的关联，使用多变量逻辑回归调整人口统计学、临床和治疗相关协变量。
+
+我报告比值比（OR）和 95% 置信区间。我会谨慎解读比值比，特别是当结局较常见时，因为比值比可能与风险比有较大差异。
+
+我会评估：结局编码是否正确、连续预测变量与 logit 的线性关系、多重共线性、稀疏单元格、完全分离（separation）、强影响点、模型校准度、模型区分度以及交互项。
+
+对于罕见事件或完全分离的情况，我可能考虑精确逻辑回归、惩罚方法或 Firth 逻辑回归。
+
+在 RWE 研究中，我还使用逻辑回归估计倾向性评分。预测的治疗概率随后可用于匹配、分层、加权或协变量调整。
+
+我主要基于专业领域知识以及变量与治疗分配和结局的关系来选择倾向性评分变量，而不是仅仅依赖自动化的统计变量选择。
+
+---
+## 26. Survival Analysis Experience / 生存分析经验
+
+**English**
+
+I have extensive experience conducting survival analyses in oncology clinical trials and real-world evidence studies.
+
+My experience includes: Kaplan–Meier estimation, log-rank tests, Cox proportional hazards models, median survival, landmark survival rates, hazard ratios, confidence intervals, censoring rules, competing risks, and time-dependent variables.
+
+Clinical trial endpoints I have supported include overall survival, progression-free survival, duration of response, event-free survival, time to progression, and time to treatment failure.
+
+RWE endpoints may include overall survival, hospitalization-free survival, time to treatment discontinuation, time to next treatment, readmission, disease progression, or time to adverse events.
+
+I carefully define: time zero, event definition, event date, censoring date, follow-up period, analysis population, data cutoff, treatment switching, and loss to follow-up.
+
+Kaplan–Meier methods estimate the survival function while accounting for right censoring. I report median survival and confidence intervals when estimable, as well as survival probabilities at clinically relevant time points.
+
+The log-rank test compares survival curves but does not adjust for covariates.
+
+The Cox proportional hazards model estimates hazard ratios while adjusting for covariates. I assess the proportional hazards assumption using graphical methods, Schoenfeld residuals, time interactions, or other diagnostics.
+
+If proportional hazards do not hold, I may consider stratified Cox models, time-varying coefficients, restricted mean survival time, milestone survival, or other methods.
+
+In RWE studies, censoring may be informative. For example, patients may disappear from a database because they changed insurers, moved to another health system, or lost eligibility. I assess the censoring mechanism and may use sensitivity analyses or inverse probability of censoring weights.
+
+Competing risks are important when another event prevents the outcome of interest. For example, death may prevent observation of disease progression or treatment discontinuation. Depending on the estimand, I may use cumulative incidence functions, cause-specific hazards, or Fine–Gray models.
+
+**中文**
+
+我在肿瘤临床试验和真实世界证据研究中拥有丰富的生存分析经验。
+
+我的经验包括：Kaplan–Meier 估计、log-rank 检验、Cox 比例风险模型、中位生存期、里程碑生存率、风险比（HR）、置信区间、删失规则、竞争风险和时间依赖变量。
+
+我支持过的临床试验终点包括总生存期、无进展生存期、缓解持续时间、无事件生存期、至进展时间和至治疗失败时间。
+
+RWE 终点可能包括总生存期、无住院生存期、至治疗终止时间、至下一次治疗时间、再入院、疾病进展或至不良事件发生时间。
+
+我会仔细定义：时间零点、事件定义、事件日期、删失日期、随访期、分析人群、数据截止、治疗转换和失访。
+
+Kaplan–Meier 方法在考虑右删失的情况下估计生存函数。当可估计时，我会报告中位生存期及其置信区间，以及具有临床意义的时间点上的生存概率。
+
+log-rank 检验用于比较生存曲线，但不调整协变量。
+
+Cox 比例风险模型在调整协变量的同时估计风险比。我会使用图形方法、Schoenfeld 残差、时间交互项或其他诊断方法评估比例风险假设。
+
+如果比例风险假设不成立，我可能考虑分层 Cox 模型、时变系数、限制性平均生存时间（RMST）、里程碑生存分析或其他方法。
+
+在 RWE 研究中，删失可能是信息性的。例如，患者可能因更换保险公司、转到其他医疗系统或失去参保资格而从数据库中消失。我会评估删失机制，并可能采用敏感性分析或删失逆概率加权（IPCW）。
+
+当另一事件阻止了目标结局的发生时，竞争风险变得重要。例如，死亡可能阻止观察到疾病进展或治疗终止。根据估计量的不同，我可能使用累积发生率函数、病因特异性风险模型或 Fine–Gray 模型。
 
 ---
 
-## 33. Treatment Pattern Analysis  
-## 33. 治疗模式分析
+## 27. Propensity Score Methods / 倾向性评分方法
 
-### English
+**English**
 
-I evaluate treatment initiation, duration, persistence, adherence, discontinuation, switching, augmentation, combination therapy, dose modification, treatment sequencing, and line of therapy.
+I have experience using propensity-score methods to reduce measured confounding in observational comparative-effectiveness studies.
 
-Treatment episodes may be defined using dispensing dates, days supplied, administration dates, permissible gaps, and clinical rules.
+The propensity score is the probability of receiving a treatment conditional on measured baseline covariates.
 
-Persistence measures continued treatment before a gap or discontinuation. Adherence may be measured by MPR or PDC.
+I generally follow these steps:
 
-Switching requires a clear rule distinguishing replacement from temporary overlap, combination therapy, or data noise.
+1. Define the causal question and estimand.
+2. Select an appropriate study design.
+3. Identify baseline confounders.
+4. Estimate the propensity score.
+5. Assess overlap and positivity.
+6. Apply matching, weighting, or stratification.
+7. Evaluate covariate balance.
+8. Estimate treatment effects.
+9. Conduct sensitivity analyses.
 
-Oncology line-of-therapy algorithms may use start dates, combination windows, treatment gaps, and addition or removal of agents.
+I may use propensity-score matching to create comparable treatment groups. Matching options include nearest-neighbor matching, caliper matching, matching with or without replacement, and variable matching ratios.
 
-I validate algorithms using clinical input, descriptive summaries, and patient-level review.
+I may use inverse probability of treatment weighting to create a weighted pseudo-population. Weighting approaches may target the average treatment effect, the average treatment effect among the treated, or another estimand.
 
-### 中文
+After applying the propensity-score method, I assess balance using standardized mean differences rather than relying only on statistical significance. An absolute standardized mean difference below approximately 0.1 is commonly considered evidence of acceptable balance, although this is not an absolute rule.
 
-我分析治疗启动、持续时间、持续性、依从性、停药、换药、加药、联合治疗、剂量调整、治疗顺序和治疗线次。
+I review propensity-score distributions, overlap, extreme weights, and effective sample size. I may stabilize or trim weights when appropriate and prespecified.
 
-治疗阶段可根据发药日期、供应天数、给药日期、允许间隔及临床规则定义。
+Propensity-score methods address measured confounding only. They do not remove bias from unmeasured confounders, measurement error, selection bias, or poor study design.
 
-持续性反映患者在治疗中断或停药前持续用药的时间；依从性可使用MPR或PDC衡量。
+**中文**
 
-换药必须有清晰规则，以区分真正替代治疗、短期重叠、联合治疗或数据噪声。
+我拥有在观察性比较效果研究中使用倾向性评分方法减少已测量混杂的经验。
 
-肿瘤治疗线次算法通常结合治疗开始日期、组合窗口、治疗间隔及药物新增或移除规则。
+倾向性评分是在给定已测量的基线协变量条件下接受某种治疗的概率。
 
-我会结合临床专家意见、描述性汇总和患者级审阅验证算法。
+我通常遵循以下步骤：
 
----
+1. 定义因果问题和估计量（estimand）。
+2. 选择合适的研究设计。
+3. 识别基线混杂因素。
+4. 估计倾向性评分。
+5. 评估重叠性（overlap）和正值性（positivity）。
+6. 应用匹配、加权或分层。
+7. 评估协变量均衡性。
+8. 估计治疗效应。
+9. 进行敏感性分析。
 
-## 34. How to Answer an Open Assessment Question  
-## 34. 如何回答开放式测评问题
+我可以使用倾向性评分匹配来创建可比较的治疗组。匹配方法包括最近邻匹配、卡钳匹配、有放回或无放回匹配以及可变匹配比例。
 
-### English
+我可以使用治疗逆概率加权（IPTW）创建加权伪人群。加权方法可以针对平均治疗效应（ATE）、治疗组的平均治疗效应（ATT）或其他估计量。
 
-A strong response structure is:
+应用倾向性评分方法后，我会使用标准化均值差（SMD）评估均衡性，而不是仅依赖统计学显著性。绝对标准化均值差低于约 0.1 通常被视为均衡性可接受的证据，但这并非绝对规则。
 
-1. Direct answer  
-2. Proposed approach  
-3. Methodological rationale  
-4. Potential limitations  
-5. Validation or sensitivity analysis  
+我会审查倾向性评分分布、重叠性、极端权重和有效样本量。在合适且预先设定的情况下，我可能对权重进行稳定化处理或截断。
 
-Reusable opening:
-
-> I would first clarify the research objective and target estimand. I would then assess whether the available data are fit for purpose and define the study population, index date, exposure, outcome, baseline covariates, follow-up period, and censoring rules. Next, I would select an analytical method aligned with the study design and evaluate potential confounding, selection bias, information bias, and missing data. Finally, I would perform sensitivity analyses and reproducible quality-control checks.
-
-### 中文
-
-一个强有力的开放式回答结构是：
-
-1. 直接回答问题  
-2. 提出分析方法  
-3. 解释方法学理由  
-4. 说明潜在局限  
-5. 提出验证或敏感性分析  
-
-可复用开场：
-
-> 我会首先明确研究目标和目标估计量，然后评估现有数据是否适用于研究目的，并定义研究人群、索引日期、暴露、结局、基线协变量、随访期和删失规则。接下来，我会选择与研究设计相匹配的统计方法，并评估潜在混杂、选择偏倚、信息偏倚和缺失数据。最后，我会开展敏感性分析和可重复的质量控制，以评估结果的稳健性。
+倾向性评分方法只能处理已测量的混杂。它们无法消除未测量混杂、测量误差、选择偏倚或研究设计缺陷带来的偏倚。
 
 ---
 
-## 35. Concise Assessment Answers  
-## 35. 精简版测评答案
+## 28. Missing Data / 缺失数据
 
-### Medical Claims / 医疗理赔
+**English**
 
-**English:**  
-I have approximately three years of experience working with medical and pharmacy claims data. My work includes cohort identification, continuous-enrollment assessment, index-date assignment, diagnosis and procedure coding, treatment-pattern analysis, healthcare utilization, cost analysis, and longitudinal outcome evaluation.
+My approach to missing data begins with understanding why the data are missing and how missingness relates to the exposure, outcome, and patient characteristics.
 
-**中文：**  
-我大约有三年医疗和药房理赔数据经验，工作内容包括队列识别、连续参保评估、索引日期定义、诊断与操作编码、治疗模式分析、医疗资源利用、成本分析及纵向结局评估。
+I assess: the percentage missing, missingness by treatment group, missingness over time, missingness by site or provider, associations between missingness and observed variables, and whether missingness may be informative.
 
-### EHR Data / EHR数据
+Common approaches include: complete-case analysis, missing-indicator methods, single imputation, multiple imputation, inverse probability weighting, model-based methods, and sensitivity analyses.
 
-**English:**  
-I have experience using EHR data containing diagnoses, medications, laboratory results, vital signs, encounters, clinical notes, and provider information. I use these data to construct cohorts, define clinical variables, evaluate treatment pathways, and derive longitudinal outcomes.
+Complete-case analysis may be reasonable when missingness is limited and unlikely to produce material bias, but it can reduce precision and introduce selection bias.
 
-**中文：**  
-我具有EHR数据经验，涉及诊断、用药、实验室结果、生命体征、就诊记录、临床文本和医疗服务提供者信息。我使用这些数据构建队列、定义临床变量、评估治疗路径并派生纵向结局。
+Multiple imputation can be appropriate when missingness can be reasonably modeled using observed information. The imputation model should include variables related to missingness, exposure, outcome, and analysis variables.
 
-### Clinical Trial Data / 临床试验数据
+In EHR data, missingness often reflects clinical decision-making. A laboratory test may be absent because it was not ordered. This makes missingness potentially informative and requires careful interpretation.
 
-**English:**  
-I have more than four years of clinical trial programming experience, including SDTM, ADaM, TLFs, validation, and oncology efficacy and safety analyses.
+I report the extent of missing data, the method used, assumptions, and sensitivity analyses.
 
-**中文：**  
-我有四年以上临床试验编程经验，包括SDTM、ADaM、TLF、独立验证及肿瘤疗效和安全性分析。
+**中文**
 
-### Large Data Extraction / 大型数据提取
+我处理缺失数据的方法从理解数据缺失的原因以及缺失与暴露、结局和患者特征之间的关系开始。
 
-**English:**  
-I extract large healthcare datasets from cloud and on-premise systems using SQL, SAS, Python, APIs, secure transfer, pushdown processing, incremental extraction, and source-to-target reconciliation.
+我会评估：缺失比例、按治疗组划分的缺失情况、随时间变化的缺失情况、按研究中心或提供者划分的缺失情况、缺失与已观测变量之间的关联，以及缺失是否可能具有信息性。
 
-**中文：**  
-我使用SQL、SAS、Python、API和安全传输，从云端及本地系统提取大型医疗数据，并采用数据库下推、增量提取和源到目标核对。
+常用方法包括：完整病例分析、缺失指示变量法、单一插补、多重插补、逆概率加权、基于模型的方法以及敏感性分析。
 
-### SAS
+当缺失有限且不太可能产生实质性偏倚时，完整病例分析可能是合理的，但它会降低精度并可能引入选择偏倚。
 
-**English:**  
-I have more than four years of SAS experience in clinical trials and RWE, including DATA step, PROC SQL, macro programming, statistical procedures, reporting, validation, and automation.
+当缺失可以利用已观测信息合理建模时，多重插补可能是合适的。插补模型应包含与缺失、暴露、结局和分析变量相关的变量。
 
-**中文：**  
-我有四年以上SAS经验，应用于临床试验和RWE，包括DATA step、PROC SQL、宏编程、统计过程、报告、验证和自动化。
+在 EHR 数据中，缺失往往反映临床决策。某项实验室检查缺失可能是因为医生未开具该检查。这使得缺失可能具有信息性，需要谨慎解读。
 
-### R
-
-**English:**  
-I use R for survival analysis, propensity scores, regression, balance diagnostics, visualization, and reproducible reporting.
-
-**中文：**  
-我使用R进行生存分析、倾向评分、回归、平衡诊断、可视化及可重复报告。
-
-### Python
-
-**English:**  
-I use Python for data extraction, cohort construction, automation, quality checks, NLP, and machine learning.
-
-**中文：**  
-我使用Python进行数据提取、队列构建、自动化、质量检查、自然语言处理和机器学习。
-
-### Unix/Linux
-
-**English:**  
-I use Unix and Linux for file management, batch processing, log review, job submission, shell scripting, and controlled production and validation environments.
-
-**中文：**  
-我使用Unix和Linux进行文件管理、批处理、日志审阅、作业提交、shell脚本及生产/验证环境管理。
-
-### Hadoop
-
-**English:**  
-I have experience with Hadoop, HDFS, Hive, and Spark for distributed processing of large claims, EHR, and longitudinal healthcare datasets.
-
-**中文：**  
-我具有Hadoop、HDFS、Hive和Spark经验，可用于分布式处理大型理赔、EHR及纵向医疗数据。
+我会报告缺失数据的程度、所采用的方法、假设条件以及敏感性分析。
 
 ---
 
-## 36. Final Professional Positioning  
-## 36. 最终职业定位
+## 29. Bias in RWE Studies / RWE 研究中的偏倚
 
-### English
+**English**
+
+Important sources of bias include: confounding by indication, selection bias, information bias, misclassification, immortal time bias, prevalent-user bias, time-lag bias, surveillance bias, channeling bias, informative censoring, reverse causation, and residual confounding.
+
+Confounding by indication occurs when the clinical reasons for selecting treatment are related to the outcome. Active-comparator, new-user designs and propensity-score methods can reduce measured confounding.
+
+Selection bias can occur when inclusion in the database or study cohort depends on variables associated with both exposure and outcome.
+
+Information bias occurs when exposure, outcome, or covariates are measured differently or inaccurately.
+
+Immortal time bias occurs when a period during which the outcome cannot occur is incorrectly assigned to the exposed group. Aligning eligibility, treatment assignment, and time zero helps prevent it.
+
+Prevalent-user bias can occur when existing users are included. These patients have already survived and tolerated treatment. A new-user design is often preferable.
+
+Surveillance bias occurs when one group is monitored more closely and therefore has more opportunities for outcomes to be detected.
+
+No statistical adjustment can fully rescue a fundamentally biased design. Therefore, I prioritize design decisions before modeling.
+
+**中文**
+
+重要的偏倚来源包括：适应症混杂、选择偏倚、信息偏倚、错误分类、不死时间偏倚、现患用户偏倚、时滞偏倚、监测偏倚、导向偏倚（channeling bias）、信息性删失、反向因果和残余混杂。
+
+适应症混杂发生在选择治疗的临床原因与结局相关时。活性对照、新用户设计以及倾向性评分方法可以减少已测量的混杂。
+
+当纳入数据库或研究队列的条件依赖于与暴露和结局都相关的变量时，可能发生选择偏倚。
+
+当暴露、结局或协变量的测量方式不一致或不准确时，会产生信息偏倚。
+
+不死时间偏倚发生在将结局不可能发生的一段时间错误地归入暴露组时。对齐资格评估、治疗分配和时间零点有助于避免该偏倚。
+
+纳入现有用户时可能产生现患用户偏倚。这些患者已经在治疗中存活并耐受了治疗。新用户设计通常更可取。
+
+监测偏倚发生在某一组被更密切监测、因而有更多机会检测到结局时。
+
+任何统计调整都无法完全挽救根本上有偏倚的设计。因此，我在建模之前优先考虑设计决策。
+
+---
+
+## 30. Production Analysis Experience / 生产分析经验
+
+**English**
+
+I have extensive experience performing production analyses in clinical trial and RWE settings where deliverables must meet predefined specifications, timelines, quality standards, and audit requirements.
+
+My workflow includes:
+
+1. Reviewing the protocol, SAP, data specifications, and output shells.
+2. Confirming the analysis population and endpoint definitions.
+3. Reviewing source data and data availability.
+4. Developing production programs.
+5. Performing log and data-quality checks.
+6. Generating datasets and outputs.
+7. Supporting independent validation.
+8. Investigating discrepancies.
+9. Documenting resolutions.
+10. Delivering approved outputs.
+
+I ensure that programs are reproducible and that output values can be traced back to the analysis datasets and source records.
+
+I perform checks for: errors and warnings, uninitialized variables, invalid data conversions, duplicate keys, unexpected missingness, population counts, denominator consistency, treatment assignments, event timing, and table-shell alignment.
+
+When production and validation outputs differ, I do not assume that one side is correct. I compare specifications, datasets, derivations, and model settings to identify the root cause.
+
+I document issues and coordinate with statisticians, data managers, programmers, and project leads to resolve them.
+
+**中文**
+
+我在临床试验和 RWE 环境中拥有丰富的生产分析经验，这些环境中的交付物必须符合预定的规范、时间表、质量标准和审计要求。
+
+我的工作流程包括：
+
+1. 审阅方案、统计分析计划（SAP）、数据规范和输出模板。
+2. 确认分析人群和终点定义。
+3. 审查源数据和数据可用性。
+4. 开发生产程序。
+5. 执行日志和数据质量检查。
+6. 生成数据集和输出。
+7. 支持独立验证。
+8. 调查差异。
+9. 记录解决方案。
+10. 交付经批准的输出。
+
+我确保程序可重复，并且输出值可以追溯到分析数据集和源记录。
+
+我执行的检查包括：错误和警告、未初始化变量、无效的数据转换、重复键、意外缺失、人群计数、分母一致性、治疗分配、事件时间以及与表格模板的对齐。
+
+当生产端和验证端的输出不一致时，我不会假定某一方是正确的。我会比较规范、数据集、推导逻辑和模型设置，以找出根本原因。
+
+我会记录问题，并与统计师、数据管理人员、程序员和项目负责人协调解决。
+
+---
+
+## 31. Quality Control and Validation / 质量控制与验证
+
+**English**
+
+My quality-control approach includes both preventive and detective controls.
+
+Preventive controls include: clear specifications, standardized programming conventions, reusable validated macros, version control, controlled source data, structured folders, and peer review.
+
+Detective controls include: independent programming, dataset comparison, output comparison, log review, record-level checks, reconciliation, range checks, frequency checks, temporal checks, and cross-domain consistency checks.
+
+For cohort studies, I validate patient counts at each inclusion and exclusion step. This helps identify unexpected losses or duplicate inclusion.
+
+For derived variables, I review selected patient records and edge cases, including patients with missing dates, simultaneous events, multiple treatments, enrollment gaps, or conflicting data.
+
+For statistical outputs, I verify population counts, denominators, confidence intervals, model specifications, censoring, and output formatting.
+
+QC should be risk-based. Complex or decision-critical derivations require more intensive validation than straightforward descriptive variables.
+
+**中文**
+
+我的质量控制方法包括预防性控制和检测性控制两方面。
+
+预防性控制包括：清晰的规范、标准化的编程规范、可重用的已验证宏、版本控制、受控的源数据、结构化的文件夹以及同行评审。
+
+检测性控制包括：独立编程、数据集比较、输出比较、日志审查、记录层面检查、核对（reconciliation）、范围检查、频数检查、时间检查以及跨域一致性检查。
+
+对于队列研究，我会在每个纳入和排除步骤验证患者计数。这有助于发现意外的患者流失或重复纳入。
+
+对于推导变量，我会审查选定的患者记录和边界情况，包括日期缺失、事件同时发生、多种治疗、参保中断或数据冲突的患者。
+
+对于统计输出，我会核实人群计数、分母、置信区间、模型设定、删失规则和输出格式。
+
+质量控制应基于风险。复杂或对决策至关重要的推导需要比简单描述性变量更严格的验证。
+
+---
+
+## 32. Healthcare Utilization and Cost Analysis / 医疗资源利用与费用分析
+
+**English**
+
+I have experience evaluating healthcare resource utilization and costs using claims and linked healthcare data.
+
+Utilization outcomes may include: inpatient admissions, hospital days, emergency department visits, outpatient visits, specialist visits, procedures, diagnostic testing, medication use, home care, and rehabilitation.
+
+Cost outcomes may include: total healthcare costs, medical costs, pharmacy costs, inpatient costs, outpatient costs, emergency department costs, disease-related costs, and all-cause costs.
+
+I define whether outcomes are counted as events, unique days, episodes, or patients with at least one event.
+
+For hospitalizations, multiple claims may represent one admission, so I create episode-level logic using admission and discharge dates.
+
+Healthcare cost data are often skewed, contain outliers, and may include many zero values. I assess the distribution and select appropriate descriptive and modeling methods.
+
+I may report means, standard deviations, medians, interquartile ranges, confidence intervals, and per-patient-per-month values.
+
+For adjusted cost analysis, possible methods include generalized linear models, two-part models, bootstrapping, or transformed regression.
+
+**中文**
+
+我拥有使用理赔和关联医疗数据评估医疗资源利用和费用的经验。
+
+利用结局可能包括：住院、住院天数、急诊就诊、门诊就诊、专科就诊、操作/手术、诊断检查、用药、家庭护理和康复。
+
+费用结局可能包括：总医疗费用、医疗费用、药房费用、住院费用、门诊费用、急诊费用、疾病相关费用和全因费用。
+
+我会定义结局的计数方式：按事件、按唯一天数、按治疗周期（episode），还是按至少发生一次事件的患者数。
+
+对于住院，多条理赔记录可能代表同一次住院，因此我会利用入院和出院日期创建住院周期（episode）层面的逻辑。
+
+医疗费用数据通常呈偏态分布、含离群值，并可能包含大量零值。我会评估其分布并选择合适的描述性统计和建模方法。
+
+我可能报告均值、标准差、中位数、四分位距、置信区间以及每患者每月（PPPM）数值。
+
+对于调整后的费用分析，可用方法包括广义线性模型、两部模型（two-part model）、Bootstrap 法或变换后回归。
+
+---
+
+## 33. Treatment Pattern Analysis / 治疗模式分析
+
+**English**
+
+I have experience evaluating treatment patterns using claims, EHR, and linked longitudinal data.
+
+Treatment-pattern measures may include: initiation, duration, persistence, adherence, discontinuation, switching, augmentation, combination therapy, dose modification, treatment sequencing, and line of therapy.
+
+I define a treatment episode using medication dispensing, days supplied, administration dates, permissible gaps, and clinical rules.
+
+Persistence describes the duration of continued therapy before a gap or discontinuation. Adherence may be measured using medication possession ratio or proportion of days covered, depending on the data and study objective.
+
+Switching requires a clear rule distinguishing replacement of one therapy from temporary overlap, combination treatment, or data noise.
+
+Line-of-therapy algorithms are especially complex in oncology. They may use treatment start dates, combinations, permissible windows, treatment gaps, and addition or removal of agents.
+
+I validate treatment algorithms using clinical input, descriptive summaries, and patient-level review.
+
+**中文**
+
+我拥有使用理赔、EHR 和关联纵向数据评估治疗模式的经验。
+
+治疗模式指标可能包括：起始、持续时间、持续性、依从性、终止、转换、加药（augmentation）、联合治疗、剂量调整、治疗序列和治疗线（line of therapy）。
+
+我使用药物配药记录、供药天数、给药日期、允许的用药间隔和临床规则来定义治疗周期。
+
+持续性描述治疗在出现用药间隔或终止之前持续的时长。依从性可以用药物持有率（MPR）或覆盖天数比例（PDC）来衡量，具体取决于数据和研究目标。
+
+转换的定义需要明确的规则，以区分一种治疗被替换与暂时重叠、联合治疗或数据噪声。
+
+治疗线算法在肿瘤学中尤其复杂。这些算法可能利用治疗开始日期、药物组合、允许窗口、治疗间隔以及药物的添加或移除。
+
+我通过临床专家意见、描述性汇总和患者层面审查来验证治疗算法。
+
+---
+
+## 34. How to Answer an Open Assessment Question / 如何回答开放性测评问题
+
+**English**
+
+A strong open-response structure is:
+
+1. Direct answer
+2. Proposed approach
+3. Methodological rationale
+4. Potential limitations
+5. Validation or sensitivity analysis
+
+A reusable answer opening is:
+
+"I would first clarify the research objective and target estimand. I would then assess whether the available data are fit for purpose and define the study population, index date, exposure, outcome, baseline covariates, follow-up period, and censoring rules. Next, I would select an analytical method aligned with the study design and evaluate potential sources of confounding, selection bias, information bias, and missing data. Finally, I would perform sensitivity analyses and reproducible quality-control checks to assess the robustness of the findings."
+
+For a data-source question:
+
+"I would review data provenance, population coverage, completeness, coding systems, refresh frequency, longitudinal follow-up, linkage quality, and the validity of key exposure, outcome, and confounder variables."
+
+For a cohort question:
+
+"I would define inclusion and exclusion criteria, continuous observation requirements, washout period, index event, baseline window, follow-up period, treatment strategies, and censoring rules. I would also verify that eligibility, treatment assignment, and time zero are aligned."
+
+For an analysis question:
+
+"I would select the method based on the outcome type, study design, estimand, distributional assumptions, and potential confounders. I would evaluate model assumptions, report effect estimates with confidence intervals, and perform sensitivity analyses."
+
+**中文**
+
+优秀的开放性回答结构为：
+
+1. 直接回答
+2. 提出方法
+3. 方法学依据
+4. 潜在局限性
+5. 验证或敏感性分析
+
+可重复使用的开场答案：
+
+"我会首先明确研究目标和目标估计量。然后评估现有数据是否适合研究目的，并定义研究人群、索引日期、暴露、结局、基线协变量、随访期和删失规则。接下来，我会选择与研究设计相匹配的分析方法，并评估混杂、选择偏倚、信息偏倚和缺失数据等潜在来源。最后，我会进行敏感性分析和可重复的质量控制检查，以评估研究结果的稳健性。"
+
+针对数据源问题：
+
+"我会审查数据来源、人群覆盖范围、完整性、编码系统、更新频率、纵向随访、关联质量，以及关键暴露、结局和混杂变量的效度。"
+
+针对队列问题：
+
+"我会定义纳入和排除标准、连续观察要求、洗脱期、索引事件、基线窗口、随访期、治疗策略和删失规则。我还会核实资格评估、治疗分配和时间零点是否对齐。"
+
+针对分析问题：
+
+"我会根据结局类型、研究设计、估计量、分布假设和潜在混杂因素选择方法。我会评估模型假设，报告效应估计值及其置信区间，并进行敏感性分析。"
+
+---
+
+## 35. Concise Assessment Answers / 简明测评答案
+
+**English**
+
+**Medical Claims:** I have approximately three years of experience working with medical and pharmacy claims data. My work includes cohort identification, continuous-enrollment assessment, index-date assignment, diagnosis and procedure coding, treatment-pattern analysis, healthcare utilization, cost analysis, and longitudinal outcome evaluation. I also assess duplicate claims, reversals, data lag, coding completeness, and the limitations of using billing data for clinical research.
+
+**EHR Data:** I have experience using EHR data containing diagnoses, medications, laboratory results, vital signs, encounters, clinical notes, and provider information. I use these data to construct cohorts, define clinical variables, evaluate treatment pathways, and derive longitudinal outcomes. I also assess missingness, documentation variation, care fragmentation, and whether medication and outcome records are sufficiently valid for the research question.
+
+**Clinical Trial Data:** I have more than four years of clinical trial programming experience, including SDTM, ADaM, tables, listings, figures, validation, and oncology efficacy and safety analyses. I have supported endpoints such as overall survival, progression-free survival, objective response rate, duration of response, tumor response, adverse events, laboratory abnormalities, and treatment exposure.
+
+**Other Data:** In addition to claims, EHR, and clinical trial data, I have experience with disease registries, laboratory and biomarker data, mortality data, healthcare utilization and cost data, patient-reported outcomes, and linked multi-source datasets. I have also worked with clinical text and am familiar with OMOP and HL7 FHIR standards.
+
+**Large Data Extraction:** I have experience extracting large healthcare datasets from cloud and on-premise systems using SQL, SAS, Python, APIs, secure transfers, and cloud connectors. I apply cohort filters, joins, partitioning, incremental extraction, pushdown processing, reconciliation, duplicate checks, and source-to-target validation.
+
+**SAS:** I have more than four years of SAS experience in clinical trials and RWE. I use DATA step, PROC SQL, macro programming, statistical procedures, and reporting procedures for data transformation, analysis datasets, statistical modeling, TLF generation, validation, and automation.
+
+**R:** I use R for healthcare data management, survival analysis, propensity-score methods, regression, balance diagnostics, visualization, and reproducible reporting.
+
+**Python:** I use Python for data extraction, cleaning, cohort construction, automation, quality checks, machine learning, natural language processing, and integration with SQL and cloud platforms.
+
+**Unix/Linux:** I use Unix and Linux for file management, batch processing, log review, job submission, shell scripting, output comparison, and organization of controlled production and validation environments.
+
+**Hadoop:** I have experience with Hadoop-based environments, HDFS, Hive, and Spark for distributed storage and processing of large claims, EHR, and longitudinal healthcare datasets.
+
+**中文**
+
+**医疗理赔数据：** 我拥有约三年医疗和药房理赔数据的工作经验。工作内容包括队列识别、连续参保评估、索引日期分配、诊断和操作编码、治疗模式分析、医疗资源利用、费用分析和纵向结局评估。我还会评估重复理赔、冲销、数据延迟、编码完整性以及将计费数据用于临床研究的局限性。
+
+**EHR 数据：** 我拥有使用包含诊断、用药、实验室结果、生命体征、就诊记录、临床病历和提供者信息的 EHR 数据的经验。我使用这些数据构建队列、定义临床变量、评估治疗路径并推导纵向结局。我还会评估缺失情况、记录习惯差异、诊疗碎片化，以及用药和结局记录对于研究问题是否足够有效。
+
+**临床试验数据：** 我拥有四年以上临床试验编程经验，包括 SDTM、ADaM、表格/列表/图形、验证以及肿瘤疗效和安全性分析。我支持过的终点包括总生存期、无进展生存期、客观缓解率、缓解持续时间、肿瘤缓解、不良事件、实验室异常和治疗暴露。
+
+**其他数据：** 除理赔、EHR 和临床试验数据外，我还拥有疾病登记数据、实验室和生物标志物数据、死亡数据、医疗资源利用和费用数据、患者报告结局以及多来源关联数据集的经验。我还处理过临床文本，并熟悉 OMOP 和 HL7 FHIR 标准。
+
+**大规模数据提取：** 我拥有使用 SQL、SAS、Python、API、安全传输和云连接器从云端和本地系统提取大型医疗数据集的经验。我应用队列筛选、连接、分区、增量提取、下推处理、核对、重复检查以及源到目标验证。
+
+**SAS：** 我拥有四年以上临床试验和 RWE 领域的 SAS 经验。我使用 DATA 步、PROC SQL、宏编程、统计过程和报告过程进行数据转换、分析数据集构建、统计建模、TLF 生成、验证和自动化。
+
+**R：** 我使用 R 进行医疗数据管理、生存分析、倾向性评分方法、回归、均衡性诊断、可视化和可重复报告。
+
+**Python：** 我使用 Python 进行数据提取、清洗、队列构建、自动化、质量检查、机器学习、自然语言处理，以及与 SQL 和云平台的集成。
+
+**Unix/Linux：** 我使用 Unix 和 Linux 进行文件管理、批处理、日志审查、作业提交、shell 脚本编写、输出比较以及受控生产和验证环境的组织。
+
+**Hadoop：** 我拥有基于 Hadoop 的环境经验，使用 HDFS、Hive 和 Spark 对大型理赔、EHR 和纵向医疗数据集进行分布式存储和处理。
+
+---
+
+## 36. Final Professional Positioning / 最终职业定位
+
+**English**
 
 My background is well suited to an RWE Analyst role because I understand both the clinical meaning of healthcare data and the technical requirements needed to turn those data into reliable evidence.
 
-I can work across the full analytical lifecycle: clarifying the research question, evaluating data fitness, designing the observational study, defining cohorts and variables, extracting large datasets, programming analysis-ready data, applying statistical methods, assessing confounding and bias, validating results, and communicating limitations.
+I can work across the full analytical lifecycle:
 
-My clinical trial experience provides discipline in specifications, endpoint definitions, traceability, and quality control. My RWE experience adds claims, EHRs, registries, observational design, target trial emulation, propensity-score methods, missing data, and real-world bias.
+- Clarifying the research question
+- Evaluating data fitness
+- Designing the observational study
+- Defining cohorts and variables
+- Extracting large datasets
+- Programming analysis-ready data
+- Applying statistical methods
+- Assessing confounding and bias
+- Validating results
+- Communicating limitations
 
-My SAS, SQL, R, Python, Unix, cloud, and distributed-data experience allows me to work across data engineering, statistical programming, and analysis.
+My clinical trial experience provides strong discipline in specifications, endpoint definitions, traceability, and quality control. My RWE experience adds expertise in claims, EHRs, registries, observational design, target trial emulation, propensity-score methods, missing data, and real-world bias.
 
-Most importantly, I do not treat RWE as only a statistical modeling exercise. Reliable evidence begins with a clearly defined question, an appropriate data source, a sound study design, transparent operational definitions, and rigorous validation. Statistical methods should support, not replace, those foundations.
+My SAS, SQL, R, Python, Unix, cloud, and distributed-data experience allows me to work effectively across data engineering, statistical programming, and analysis tasks.
 
-### 中文
+Most importantly, I do not treat RWE as only a statistical modeling exercise. I recognize that reliable evidence begins with a clearly defined question, an appropriate data source, a sound study design, transparent operational definitions, and rigorous validation. Statistical methods are then used to support—not replace—those foundations.
 
-我的背景非常适合RWE Analyst岗位，因为我既理解医疗数据的临床意义，也掌握将这些数据转化为可靠证据所需的技术方法。
+**中文**
 
-我能够覆盖完整分析生命周期，包括明确研究问题、评估数据适用性、设计观察性研究、定义队列和变量、提取大型数据、构建分析数据集、应用统计方法、评估混杂和偏倚、验证结果并沟通研究局限。
+我的背景非常适合 RWE 分析师的岗位，因为我既理解医疗数据的临床含义，也掌握将这些数据转化为可靠证据所需的技术要求。
 
-临床试验经验使我在规格、终点定义、可追溯性和质量控制方面具有严格的工作习惯；RWE经验则补充了理赔、EHR、登记、观察性研究设计、目标试验模拟、倾向评分、缺失数据和真实世界偏倚等能力。
+我能够贯穿完整的分析生命周期开展工作：
 
-我的SAS、SQL、R、Python、Unix、云平台和分布式数据经验，使我能够跨越数据工程、统计编程和分析建模工作。
+- 明确研究问题
+- 评估数据适用性
+- 设计观察性研究
+- 定义队列和变量
+- 提取大型数据集
+- 编程生成分析就绪数据
+- 应用统计方法
+- 评估混杂和偏倚
+- 验证结果
+- 沟通局限性
 
-最重要的是，我不会把RWE仅仅视为统计建模。可靠证据始于明确的问题、合适的数据源、合理的研究设计、透明的操作性定义及严格验证。统计方法应当支持这些基础，而不是取代这些基础。
+我的临床试验经验为我在规范、终点定义、可追溯性和质量控制方面奠定了严格的纪律基础。我的 RWE 经验则补充了在理赔、EHR、登记数据、观察性研究设计、目标试验模拟、倾向性评分方法、缺失数据和真实世界偏倚方面的专业知识。
+
+我在 SAS、SQL、R、Python、Unix、云平台和分布式数据方面的经验，使我能够高效地跨数据工程、统计编程和分析任务开展工作。
+
+最重要的是，我不会将 RWE 仅仅视为统计建模的工作。我认识到，可靠的证据始于清晰定义的研究问题、合适的数据源、严谨的研究设计、透明的操作性定义和严格的验证。统计方法是用来支撑——而非替代——这些基础的。
 
 ---
 
-## Suggested Use  
-## 使用建议
-
-- Use the full answers for written assessments and interviews requiring detailed explanations.  
-- Use Section 35 for short-form assessment responses.  
-- Adapt the wording to the specific database, therapeutic area, and job description.  
-- Avoid claiming direct hands-on experience with a platform unless you can explain the workflow and provide a concrete example.
-
-- 完整版适合书面测评及需要详细解释的面试。  
-- 第35部分适合短答案或限字数题目。  
-- 建议根据具体数据库、治疗领域和岗位描述调整措辞。  
-- 如果不能提供具体工作流程或案例，不应把某个平台描述为深度实操经验。
+*本指南将所有答案整合为一份完整的中英文对照文档，各主题可单独用于简短的测评回答。*
+*This guide consolidates all answers into a single bilingual document while keeping each topic separable for short assessment responses.*
