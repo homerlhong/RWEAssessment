@@ -11,7 +11,7 @@ Last updated: 2026-11-09
 | 30 秒 | 见下方英文 |
 | 2 分钟 | 30 秒版本 + 一个 STAR 故事（下文的「385 个输出」）+ 为什么换到这个岗位 |
 
-> "I'm a statistical programmer with an MD-PhD and a clinical background in neurosurgery. At Tigermed I owned end-to-end programming and QC for three lymphoma studies: SDTM, ADaM, and CSR-ready TLFs, including PFS and OS event and censoring derivations, ORR, DOR, Kaplan–Meier and Cox outputs. At database lock I led a controlled rerun with independent QC of 385 outputs in three days, and the CSR still went out on schedule. I also programmed CRS safety tables for an integrated safety summary of a bispecific antibody. My clinical training helps me read a protocol the way the clinical team does, so I catch derivation issues before they reach the tables."
+> "I'm a statistical programmer with an MD-PhD and a clinical background in neurosurgery. At Tigermed I owned end-to-end programming and QC for three lymphoma studies: SDTM, ADaM, and CSR-ready TLFs, including PFS and OS event and censoring derivations, ORR, DOR, Kaplan–Meier and Cox outputs. On one lymphoma study, a specification discrepancy potentially affected 385 outputs close to a reporting milestone. I helped assess the impact, aligned the correction with the statistician, and ran a controlled rerun with independent QC in parallel; remediation was completed in about three days and the CSR remained on schedule. I also programmed CRS safety tables for an integrated safety summary of a bispecific antibody. My clinical training helps me read a protocol the way the clinical team does, so I catch derivation issues before they reach the tables."
 
 注意：对外只说「a bispecific T-cell engager」，不说化合物名和研究编号。
 
@@ -109,7 +109,7 @@ Double programming 的标准做法：
 
 | 故事 | 能回答的题 | Situation / Task | Action | Result |
 | --- | --- | --- | --- | --- |
-| 1. 锁库重跑 | 压力、截止日期、优先级 | 数据库锁定后需要重跑全部输出 | 先按关键性排序，受控重跑并独立 QC | 3 天内 385 个输出全部通过，CSR 按时交付 |
+| 1. 规格不一致的补救 | 压力、截止日期、优先级 | 临近报告节点，发现规格不一致，可能影响 385 个输出 | 评估影响范围 → 和统计师对齐修正方案 → 受控重跑与独立 QC 并行 | 约 3 天完成补救，CSR 按时交付 |
 | 2. 发现规格不一致 | 注重细节、主动沟通 | 姊妹表的过滤条件不一致 | 对比代码、定位差异、和统计师确认规则 | 两张表统一规则，写进 issue log |
 | 3. 从临床到编程 | 为什么转行、你的独特优势 | 神经外科背景转向统计编程 | 系统学习 CDISC / SAS / R，在 CRO 实战 | 能从临床角度发现派生问题 |
 
